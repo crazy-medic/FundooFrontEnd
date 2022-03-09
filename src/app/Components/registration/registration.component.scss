@@ -1,0 +1,83 @@
+.mat-card{
+  width: 110vh;
+  display: block;
+  margin-left:auto;
+  margin-right:auto;  
+}
+.parentcontainer{
+  margin: 40px;
+  .formContainer{
+    padding: 50px 50px 50px;
+    width: 80%;
+  }
+  .firstLastName{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  .emailHint{
+      font-size: 15px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  .password{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  .buttons{
+      display: flex;
+      justify-content: space-between;
+  }
+  .imagecontainer{
+    float: left;
+    width: 300px;
+    height: 300px;
+  }
+}
+.fundooFont{
+  font-size: 25px;
+  font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+}
+.longFormField{
+  width: 200%;
+}
+.widthFormField{
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .mat-card{
+    width: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    padding: 0 !important;
+    transition: none !important;
+    box-shadow: none !important;
+  }
+  .container{
+    margin: 0 !important;
+  }
+  .innerContainer{
+    width: auto !important;
+    padding: 18px 21px;
+  }
+  .longFormField{
+    width: auto !important;
+  }
+  .firstLastName{
+    width: auto !important;
+    display: inline !important;
+  }
+  .password{
+    display: inline !important;
+  }
+  .createLine{
+    h1{
+        font-size: 100% !important;
+    }
+  }
+  
+}

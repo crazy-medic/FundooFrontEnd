@@ -1,0 +1,61 @@
+<div class="parentcontainer">
+    <mat-card>
+        <div class="formContainer">
+            <div>
+                <h1>
+                    Fundoo Notes App
+                </h1>
+            </div>
+            <div>
+                <h1>
+                    Create your Fundoo Account
+                </h1>
+            </div>
+            <div class="firstLastName">
+                <div>
+                    <mat-form-field appearance="outline">
+                        <mat-label>First Name</mat-label>
+                        <input matInput FirstName="FirstName">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput LastName="LastName">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="userName">
+                <mat-form-field appearance="outline">
+                <mat-label>UserName</mat-label>
+                <input matInput UserName="UserName">
+                <mat-icon matSuffix>@gmail.com</mat-icon>
+                <mat-hint>Alphanumeric with numbers</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="password">
+                <div>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput password="password">
+                    <mat-hint>Alphanumeric with numbers</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput confirmPassword="confirmPassword">
+                    </mat-form-field>    
+                </div>
+            </div>
+            <section class="example-section">
+                <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+            </section>
+            <section>
+                <div class="signin">
+                    <button mat-flat-button>Sign in instead</button>
+                    <button mat-button>Next</button> 
+                </div>
+            </section>
+        </div>
+        <div class="imagecontainer">
+            <img src="assets/account.svg">
+        </div>
+    </mat-card>
+  </div>
