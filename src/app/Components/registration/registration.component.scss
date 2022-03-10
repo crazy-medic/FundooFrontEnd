@@ -1,83 +1,32 @@
-.mat-card{
+mat-card{
   width: 110vh;
-  display: block;
+  display: table;
   margin-left:auto;
-  margin-right:auto;  
+  margin-right:auto;
 }
 .parentcontainer{
-  margin: 40px;
-  .formContainer{
-    padding: 50px 50px 50px;
-    width: 80%;
-  }
-  .firstLastName{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  .emailHint{
-      font-size: 15px;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  .password{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  .buttons{
-      display: flex;
-      justify-content: space-between;
-  }
-  .imagecontainer{
-    float: left;
-    width: 300px;
-    height: 300px;
-  }
+  position: relative;
+  display: table-cell;
+  align-self: auto;
+  margin: auto;
+  width: 1200px;
+  clear: both;
 }
-.fundooFont{
-  font-size: 25px;
-  font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+.formContainer{
+  padding: 50px ;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 60%;
 }
-.longFormField{
-  width: 200%;
+.imagecontainer{
+  width: 40%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
-.widthFormField{
-  font-size: 12px;
-}
-
-@media (max-width: 600px) {
-  .mat-card{
-    width: auto !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    padding: 0 !important;
-    transition: none !important;
-    box-shadow: none !important;
-  }
-  .container{
-    margin: 0 !important;
-  }
-  .innerContainer{
-    width: auto !important;
-    padding: 18px 21px;
-  }
-  .longFormField{
-    width: auto !important;
-  }
-  .firstLastName{
-    width: auto !important;
-    display: inline !important;
-  }
-  .password{
-    display: inline !important;
-  }
-  .createLine{
-    h1{
-        font-size: 100% !important;
-    }
-  }
-  
+.button-row{
+  margin: 8px 8px 8px 0;
+  display: table-cell;
+  width: 490px;
 }
