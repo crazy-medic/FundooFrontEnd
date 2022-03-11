@@ -18,6 +18,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
 import { ForgotpasswordComponent } from './Components/forgotpassword/forgotpassword.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

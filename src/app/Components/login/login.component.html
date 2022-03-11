@@ -1,5 +1,48 @@
-<div fxFlex=100 fxLayout="row" fxLayoutAlign="center center">
-    <mat-card fxFlex=45>
-        
+<div fxFlex=100 fxLayout="row" fxLayoutAlign="center center" style="width: 100vw;height: 100vh;">
+    <mat-card fxLayoutAlign="center center">
+        <form fxLayout="column" fxLayoutGap=10px>
+            <div>
+                <h1 fxLayoutAlign="center">
+                    <span style="color:#FF0000">F</span>
+                    <span style="color:#66CC66">u</span>
+                    <span style="color:#FF9966">n</span>
+                    <span style="color:#FFCCCC">d</span>
+                    <span style="color:#FF0066">o</span>
+                    <span style="color:#d9ff00">o</span>
+                </h1>
+                <h2 fxLayoutAlign="center">
+                    Welcome back
+                </h2>
+                <h3 fxLayoutAlign="center">
+                    Use Your Fundoo mail to login
+                </h3>
+            </div>
+            <div fxLayout="column" fxLayoutGap="20px">
+                <div fxLayout="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>UserName</mat-label>
+                        <input matInput UserName="UserName">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput password="password">
+                    </mat-form-field>
+                    <div fxLayout="column">
+                        <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+                <div>
+                    <button mat-flat-button routerLink="/registration">Sign up instead</button>
+                </div>
+                <div fxLayout="column" fxLayoutGap="7px">
+                    <button mat-raised-button color="primary">Login</button>
+                    <button mat-flat-button routerLink="/forgotpassword">Forgot Password</button>
+                </div>
+            </div>
+        </form>
     </mat-card>
 </div>
