@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center center" style="width: 100vw;height: 100vh;">
     <mat-card>
-        <form fxLayout="row" fxLayoutGap=10px>
+        <form [formGroup]="registerationForm" (ngSubmit)="onSubmit()" fxLayout="row" fxLayoutGap=10px>
             <div fxLayout="column" fxLayoutGap="20px">
                 <div>
                     <h1 fxLayoutAlign="center">
@@ -17,18 +17,19 @@
                     <div fxLayoutGap=10px>
                         <mat-form-field appearance="outline">
                             <mat-label>First Name</mat-label>
-                            <input matInput FirstName="FirstName">
+                            <input matInput formControlName="firstName" FirstName="FirstName">
+                            <mat-error>Please enter a Name</mat-error>
                         </mat-form-field>
                         <mat-form-field appearance="outline">
                             <mat-label>Last Name</mat-label>
-                            <input matInput LastName="LastName">
+                            <input matInput formControlName="lastName" LastName="LastName">
                         </mat-form-field>
                     </div>
                     <div fxLayout="column" fxLayout.xs="row">
                         <mat-form-field appearance="outline">
-                            <mat-label>UserName</mat-label>
-                            <input matInput UserName="UserName">
-                            <mat-icon matSuffix>@gmail.com</mat-icon>
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" UserName="email">
+                            <mat-error>Please enter an email</mat-error>
                             <mat-hint>Alphanumeric with symbols</mat-hint>
                         </mat-form-field>
                     </div>
@@ -36,12 +37,12 @@
                 <div fxLayoutGap=10px>
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput password="password">
+                        <input matInput formControlName="password" password="password">
                         <mat-hint>Alphanumeric with symbols</mat-hint>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm Password</mat-label>
-                        <input matInput confirmPassword="confirmPassword">
+                        <input matInput formControlName="confirmPassword" confirmPassword="confirmPassword">
                         <mat-hint>Same as password</mat-hint>
                     </mat-form-field>
                 </div>

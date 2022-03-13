@@ -1,6 +1,6 @@
 <div fxFlex=100 fxLayout="row" fxLayoutAlign="center center" style="width: 100vw;height: 100vh;">
     <mat-card fxLayoutAlign="center center">
-        <form fxLayout="column" fxLayoutGap=10px>
+        <form [formGroup]="loginform" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap=10px>
             <div>
                 <h1 fxLayoutAlign="center">
                     <span style="color:#FF0000">F</span>
@@ -20,17 +20,22 @@
             <div fxLayout="column" fxLayoutGap="20px">
                 <div fxLayout="column">
                     <mat-form-field appearance="outline">
-                        <mat-label>UserName</mat-label>
-                        <input matInput UserName="UserName">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" email="email">
                     </mat-form-field>
                 </div>
-                <div fxLayout="column">
+                <div fxLayout="column" fxLayoutGap="5px">
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput password="password">
+                        <input matInput formControlName="password" password="password">
                     </mat-form-field>
-                    <div fxLayout="column">
-                        <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+                    <div fxLayout="row" fxLayoutAlign="space-between">
+                        <div>
+                            <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+                        </div>
+                        <div>
+                            <button mat-flat-button routerLink="/forgotpassword">Forgot Password</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -40,7 +45,6 @@
                 </div>
                 <div fxLayout="column" fxLayoutGap="7px">
                     <button mat-raised-button color="primary">Login</button>
-                    <button mat-flat-button routerLink="/forgotpassword">Forgot Password</button>
                 </div>
             </div>
         </form>
