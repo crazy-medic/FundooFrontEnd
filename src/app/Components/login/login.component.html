@@ -1,6 +1,6 @@
 <div fxFlex=100 fxLayout="row" fxLayoutAlign="center center" style="width: 100vw;height: 100vh;">
     <mat-card fxLayoutAlign="center center">
-        <form [formGroup]="loginform" (ngSubmit)="onSubmit()" fxLayout="column" fxLayoutGap=10px>
+        <form [formGroup]="loginform" (ngSubmit)="onSubmit()" fxLayout="column" fxLayout.sm="row" fxLayoutGap=10px>
             <div>
                 <h1 fxLayoutAlign="center">
                     <span style="color:#FF0000">F</span>
@@ -21,13 +21,13 @@
                 <div fxLayout="column">
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input matInput formControlName="email" email="email">
+                        <input matInput formControlName="EmailID" email="EmailID">
                     </mat-form-field>
                 </div>
                 <div fxLayout="column" fxLayoutGap="5px">
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput formControlName="password" password="password">
+                        <input matInput formControlName="Password" password="Password">
                     </mat-form-field>
                     <div fxLayout="row" fxLayoutAlign="space-between">
                         <div>

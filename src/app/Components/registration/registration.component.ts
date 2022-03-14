@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, PatternValidator, Validators } from '@angular/forms';
+import { UserService } from 'src/app/Services/userservices/user.service';
 
 @Component({
   selector: 'app-registration',
@@ -12,15 +13,15 @@ export class RegistrationComponent implements OnInit {
   registerationForm !: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private userService:UserService) { }
 
   ngOnInit(): void {
     this.registerationForm = this.formBuilder.group({
-      firstName: ['', Validators.required,Validators.minLength(3)],
-      lastName: [''],
-      email: ['', [Validators.required, Validators.email,Validators.pattern("^[a-z]{3,}[.]*[a-z0-9]*[@]{1}[a-z]{2,}[.]{1}[co]{2}[m]*[.]*[a-z]*$")]],
-      password: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')]],
-      confirmPassword: ['', [Validators.required]],
+      FirstName: ['', Validators.required,Validators.minLength(3)],
+      LastName: [''],
+      EmailID: ['', [Validators.required, Validators.email]],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
+      ConfirmPassword: ['', [Validators.required]],
     });
   }
   
@@ -32,5 +33,8 @@ export class RegistrationComponent implements OnInit {
       return;
     }
     console.log(this.registerationForm.value)
+    this.userService.registration(this.registerationForm.value).subscribe((response:any)=>{
+      console.log(response);
+    })
   }
 }
