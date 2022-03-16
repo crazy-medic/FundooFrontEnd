@@ -39,13 +39,13 @@ export class UserService {
     return this.httpService.postService('User/ResetPassword',data,false,headerObj);
   }
 
-  forgot(data:{}){
+  forgot(data:any){
     let headerObj = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }
     console.log("forgotpassword called from user service",data);
-    return this.httpService.postService('User/ForgotPassword',data,false,headerObj);
+    return this.httpService.postService('User/ForgotPassword?email='+data.email,{},false,headerObj);
   }
 }
