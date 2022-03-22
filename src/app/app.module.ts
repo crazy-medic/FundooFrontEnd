@@ -29,6 +29,7 @@ import { DisplaynoteComponent } from './Components/displaynote/displaynote.compo
 import { IconscomponentComponent } from './Components/iconscomponent/iconscomponent.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdatedialogComponent } from './Components/updatedialog/updatedialog.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { UpdatedialogComponent } from './Components/updatedialog/updatedialog.co
     BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatFormFieldModule, MatInputModule,
     MatDividerModule, MatCardModule, MatCheckboxModule, MatGridListModule, MatButtonModule, FlexLayoutModule,
     ReactiveFormsModule, MatSidenavModule, FormsModule, HttpClientModule, MatToolbarModule, MatIconModule,
-    MatListModule, MatDialogModule,
+    MatListModule, MatDialogModule, MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

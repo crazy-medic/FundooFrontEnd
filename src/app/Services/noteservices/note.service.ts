@@ -33,4 +33,15 @@ export class NoteService {
     console.log("getall service called from noteservice");
     return this.httpService.getService('Notes/GetAll', true, headerObj)
   }
+
+  trashnote(note:any){
+    this.token = localStorage.getItem('token')
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    return this.httpService.putService('/Notes/Delete', note.noteid,true,headerObj)
+  }
 }

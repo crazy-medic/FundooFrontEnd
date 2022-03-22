@@ -1,0 +1,9 @@
+.card{
+    min-width: 244px;
+}
+.icons{
+    visibility:hidden
+}
+.card:hover .icons{
+    visibility: visible;
+}

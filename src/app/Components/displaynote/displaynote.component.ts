@@ -10,25 +10,14 @@ import { UpdatedialogComponent } from '../updatedialog/updatedialog.component';
 export class DisplaynoteComponent implements OnInit {
 
   @Input() NotesList: any
-  isHovered = false;
 
   constructor(public dialog: MatDialog,) { }
 
   ngOnInit(): void {
-    
-  }
-
-  MouseIn() {
-    this.isHovered = true;
-  }
-
-  MouseOut() {
-    this.isHovered = false;
   }
 
   Open(notedata:any) {
     let dialogRef = this.dialog.open(UpdatedialogComponent, { data: notedata });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     })

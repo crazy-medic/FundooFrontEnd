@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="start">
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="3px">
     <div>
         <button>
             <img src="/assets/bell.webp" width="15px" height="15px" />
@@ -21,12 +21,15 @@
     </div>
     <div>
         <button>
-            <img src="/assets/Archievelight.png" width="15px" height="15px" />
+            <img src="/assets/Archievelight.png" onclick="Archive(note)" width="15px" height="15px" />
         </button>
     </div>
     <div>
-        <button>
+        <button [matMenuTriggerFor]="menu">
             <img src="/assets/more.png" width="15px" height="15px" />
         </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item onclick="Delete(note)">Delete Note</button>
+        </mat-menu>
     </div>
 </div>
