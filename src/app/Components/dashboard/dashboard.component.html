@@ -1,18 +1,18 @@
 <div class="container" [class.example-is-mobile]="mobileQuery.matches">
-    <mat-toolbar color="primary">
+    <mat-toolbar>
         <div class="menu">
             <button mat-icon-button (click)="snav.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
         </div>
-        <img class="logo" src="/assets/fundoo.svg" width="35px" height="35px" />
+        <img class="logo" src="/assets/keep.png" width="30px" height="30px" />
         <div class="title">
             <p>Fundoo Notes</p>
         </div>
-        <div class="firstContainer" fxLayout="row" fxLayoutAlign="start center" fxfill>
+        <div class="firstContainer" fxLayout="row" fxLayoutAlign="start center">
             <div>
                 <button mat-button class="searching"><img src="/assets/search.png" style="width:25px; height: 25px;" />
-                    <input type="text" placeholder="Search" class="search">
+                    <input fxHide.xs="true" fxHide.sm="true" fxHide.md="true" type="text" placeholder="Search" class="search">
                 </button>
             </div>
         </div>
@@ -37,12 +37,12 @@
         <div class="iconbar">
             <div class="example-sidenav-content">
                 <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/note.png" width="25px" height="25px" />
+                    <img class="img" src="/assets/bulb.png" width="25px" height="25px" />
                 </button>
             </div>
             <div class="example-sidenav-content">
                 <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/reminder.png" width="25px" height="25px" />
+                    <img class="img" src="/assets/bell.webp" width="25px" height="25px" />
                 </button>
             </div>
             <!-- <div class="example-sidenav-content">
@@ -57,7 +57,7 @@
             </div>
             <div class="example-sidenav-content">
                 <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/archive.png" width="25px" height="25px" />
+                    <img class="img" src="/assets/Archievelight.png" width="25px" height="25px" />
                 </button>
             </div>
             <div class="example-sidenav-content">
@@ -69,8 +69,7 @@
         <div>
             <mat-sidenav-container class="example-sidenav-container" style="border: black;"
                 [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-                <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
                     <mat-nav-list>
                         <a class="link" mat-list-item routerLink="." style="text-align: center;">Notes</a>
                         <a class="link" mat-list-item routerLink=".">Reminders</a>
@@ -79,7 +78,7 @@
                         <a class="link" mat-list-item routerLink=".">Bin</a>
                     </mat-nav-list>
                 </mat-sidenav>
-                <mat-sidenav-content>
+                <mat-sidenav-content style="width:100%;height:auto">
                     <router-outlet></router-outlet>
                 </mat-sidenav-content>
             </mat-sidenav-container>

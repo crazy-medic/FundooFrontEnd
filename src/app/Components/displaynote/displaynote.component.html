@@ -1,12 +1,17 @@
-<div fxFlex="100" fxLayout="column" fxLayoutAlign="center center">
-    <div fxLayout="column" fxLayoutAlign="center" style="margin-top:30px;">
-        <mat-card (mouseenter)="MouseIn()" (mouseleave)="MouseOut()" style="min-width: 244px;">
-            <div fxLayoutGap="5px">
-                <p>this is a note</p>
-            </div>
-            <div *ngIf="isHovered">
-                <app-iconscomponent></app-iconscomponent>
-            </div>
-        </mat-card>
+<div fxFlex="100" fxLayout="row" fxFlexAlign="grid" style="padding: 25px;">
+    <div fxLayout="row" fxLayout.xs="column" style="margin-top:30px;">
+        <div fxFlex="100%" *ngFor="let note of NotesList">
+            <mat-card (mouseenter)="MouseIn()" (mouseleave)="MouseOut()" (click)="Open(note)" style="min-width: 244px;" >
+                <mat-card-title>
+                    {{note.title}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{note.body}}
+                </mat-card-subtitle>
+                <div *ngIf="isHovered">
+                    <app-iconscomponent></app-iconscomponent>
+                </div>
+            </mat-card>
+        </div>
     </div>
 </div>

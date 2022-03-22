@@ -27,6 +27,8 @@ import { TakenoteComponent } from './Components/takenote/takenote.component';
 import { GetallnoteComponent } from './Components/getallnote/getallnote.component';
 import { DisplaynoteComponent } from './Components/displaynote/displaynote.component';
 import { IconscomponentComponent } from './Components/iconscomponent/iconscomponent.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UpdatedialogComponent } from './Components/updatedialog/updatedialog.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +42,14 @@ import { IconscomponentComponent } from './Components/iconscomponent/iconscompon
     GetallnoteComponent,
     DisplaynoteComponent,
     IconscomponentComponent,
+    UpdatedialogComponent,
   ],
+  entryComponents: [UpdatedialogComponent],
   imports: [
     BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatFormFieldModule, MatInputModule,
     MatDividerModule, MatCardModule, MatCheckboxModule, MatGridListModule, MatButtonModule, FlexLayoutModule,
     ReactiveFormsModule, MatSidenavModule, FormsModule, HttpClientModule, MatToolbarModule, MatIconModule,
-    MatListModule,
+    MatListModule, MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

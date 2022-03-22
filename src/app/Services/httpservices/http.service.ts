@@ -17,6 +17,7 @@ export class HttpService {
 
   getService(url: string, token: boolean = false, httpAuthOptions: any = {}) {
     console.log("Get service called");
+    return this.http.get(this.BaseURL + url,token && httpAuthOptions)
   }
 
   putService() {
