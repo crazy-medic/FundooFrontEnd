@@ -48,6 +48,7 @@ export class IconscomponentComponent implements OnInit {
       console.log(response)
       this.dataservice.sendData(response)
     })
+    window.location.reload();
   }
 
   Archive(){
