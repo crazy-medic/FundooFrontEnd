@@ -30,6 +30,10 @@ import { IconscomponentComponent } from './Components/iconscomponent/iconscompon
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdatedialogComponent } from './Components/updatedialog/updatedialog.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { AuthGuardGuard } from 'src/auth-guard.guard';
+import { AuthguardService } from './Services/AuthGaurd/authguard.service';
+import { DeleteviewComponent } from './Components/deleteview/deleteview.component';
+import { ArchiveviewComponent } from './Components/archiveview/archiveview.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,8 @@ import { MatMenuModule } from '@angular/material/menu';
     DisplaynoteComponent,
     IconscomponentComponent,
     UpdatedialogComponent,
+    DeleteviewComponent,
+    ArchiveviewComponent,
   ],
   entryComponents: [UpdatedialogComponent],
   imports: [
@@ -52,7 +58,9 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule, MatSidenavModule, FormsModule, HttpClientModule, MatToolbarModule, MatIconModule,
     MatListModule, MatDialogModule, MatMenuModule,
   ],
-  providers: [],
+  providers: [
+    AuthguardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

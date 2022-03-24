@@ -11,38 +11,41 @@
         </div>
         <div class="firstContainer" fxLayout="row" fxLayoutAlign="start center">
             <div>
-                <button mat-button class="searching"><img src="/assets/search.png" style="width:25px; height: 25px;" />
-                    <input fxHide.xs="true" fxHide.sm="true" fxHide.md="true" type="text" placeholder="Search" class="search">
+                <button mat-button class="searching"><img src="/assets/search.svg" style="width:25px; height: 25px;" />
+                    <input fxHide.xs="true" fxHide.sm="true" fxHide.md="true" type="text" placeholder="Search" (keyup)="Search($event)" class="search">
                 </button>
             </div>
         </div>
         <div>
-            <button mat-button class="refresh"><img src="/assets/refresh.png" width="25px" height="25px" />
+            <button mat-button class="refresh"><img src="/assets/refresh.svg" (click)="refresh()" width="25px" height="25px" />
             </button>
         </div>
         <div>
-            <button mat-button class="view"><img src="/assets/grid.png" width="25px" height="25px" />
+            <button mat-button class="view"><img src="/assets/view.svg" width="25px" height="25px" />
             </button>
         </div>
         <div>
-            <button mat-button class="settings"><img src="/assets/setting.webp" width="25px" height="25px" />
+            <button mat-button class="settings"><img src="/assets/settings.svg" width="25px" height="25px" />
             </button>
         </div>
         <div>
-            <button mat-button class="profile"><img src="/assets/account.webp" width="20px" height="20px" />
+            <button [matMenuTriggerFor]="accountmenu" mat-button class="profile"><img src="/assets/account.svg"  width="20px" height="20px" />
             </button>
+            <mat-menu #accountmenu="matMenu">
+                <button mat-menu-item (click)="logout()" >Logout</button>
+            </mat-menu>
         </div>
     </mat-toolbar>
     <div fxLayout="row" fxLayoutAlign="start">
         <div class="iconbar">
             <div class="example-sidenav-content">
-                <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/bulb.png" width="25px" height="25px" />
+                <button type="button" class="icons" mat-button>
+                    <img class="img" src="/assets/bulb.svg" routerLink="notes" width="25px" height="25px" />
                 </button>
             </div>
             <div class="example-sidenav-content">
-                <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/bell.webp" width="25px" height="25px" />
+                <button type="button" class="icons" mat-button>
+                    <img class="img" src="/assets/bell.svg" width="25px" height="25px" />
                 </button>
             </div>
             <!-- <div class="example-sidenav-content">
@@ -51,18 +54,18 @@
                 </button>
             </div> -->
             <div class="example-sidenav-content">
-                <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/edit.png" width="25px" height="25px" />
+                <button type="button" class="icons" mat-button>
+                    <img class="img" src="/assets/pencil.svg" width="25px" height="25px" />
                 </button>
             </div>
             <div class="example-sidenav-content">
-                <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/Archievelight.png" width="25px" height="25px" />
+                <button type="button" class="icons" mat-button>
+                    <img class="img" src="/assets/archive.svg" routerLink="archive" width="25px" height="25px" />
                 </button>
             </div>
             <div class="example-sidenav-content">
-                <button type="button" class="icons" mat-button (click)="snav.toggle()">
-                    <img class="img" src="/assets/delete.jpg" width="25px" height="25px" />
+                <button type="button" class="icons" mat-button>
+                    <img class="img" src="/assets/delete.svg" routerLink="deleted" width="25px" height="25px" />
                 </button>
             </div>
         </div>
@@ -71,11 +74,11 @@
                 [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
                 <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
                     <mat-nav-list>
-                        <a class="link" mat-list-item routerLink="." style="text-align: center;">Notes</a>
+                        <a class="link" mat-list-item routerLink="notes" style="text-align: center;">Notes</a>
                         <a class="link" mat-list-item routerLink=".">Reminders</a>
                         <a class="link" mat-list-item routerLink=".">Edit Labels</a>
-                        <a class="link" mat-list-item routerLink=".">Archive</a>
-                        <a class="link" mat-list-item routerLink=".">Bin</a>
+                        <a class="link" mat-list-item routerLink="archive">Archive</a>
+                        <a class="link" mat-list-item routerLink="deleted">Bin</a>
                     </mat-nav-list>
                 </mat-sidenav>
                 <mat-sidenav-content style="width:100%;height:auto">

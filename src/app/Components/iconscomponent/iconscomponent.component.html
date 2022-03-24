@@ -1,35 +1,57 @@
-<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="3px">
-    <div>
-        <button>
-            <img src="/assets/bell.webp" width="15px" height="15px" />
-        </button>
+<div class="icons">
+    <div *ngIf="showIcons && this.notecarddata.isDeleted === false" fxLayout="row" fxLayoutAlign="space-between"
+        fxLayoutGap="3px">
+        <div>
+            <!-- <button > -->
+            <img [matMenuTriggerFor]="remindermenu" src="/assets/reminder.svg" width="24px" height="24px" />
+            <!-- </button> -->
+            <mat-menu #remindermenu="matMenu">
+                <button mat-menu-item>Today</button>
+                <button mat-menu-item>Tomorrow</button>
+                <button mat-menu-item>This Week</button>
+                <button mat-menu-item>Select date/time</button>
+                <button mat-menu-item>Select location</button>
+            </mat-menu>
+        </div>
+        <div>
+            <!-- <button> -->
+            <img src="/assets/collab.svg" width="24px" height="24px" />
+            <!-- </button> -->
+        </div>
+        <div>
+            <!-- <button> -->
+            <img src="/assets/palette.svg" width="24px" height="24px" />
+            <!-- </button> -->
+        </div>
+        <div>
+            <!-- <button> -->
+            <img src="/assets/insertimg.svg" width="24px" height="24px" />
+            <!-- </button> -->
+        </div>
+        <div>
+            <button *ngIf="this.notecarddata.isArchived === false">
+                <img src="/assets/archive.svg" (click)="Archive()" width="24px" height="24px" />
+            </button>
+            <button *ngIf="this.notecarddata.isArchived === true">
+                <img src="/assets/unarchive.svg" (click)="Archive()" width="24px" height="24px" />
+            </button>
+        </div>
+        <div>
+            <!-- <button > -->
+            <img [matMenuTriggerFor]="moremenu" src="/assets/more.svg" width="24px" height="24px" />
+            <!-- </button> -->
+            <mat-menu #moremenu="matMenu">
+                <span mat-menu-item (click)="Delete()">Delete Note</span>
+            </mat-menu>
+        </div>
     </div>
-    <div>
+    <div *ngIf=" this.notecarddata.isDeleted === true" fxLayout="row" 
+        fxLayoutGap="3px">
         <button>
-            <img src="/assets/collab.webp" width="15px" height="15px" />
+            <img src="/assets/restore.svg" (click)="Delete()" width="24px" height="24px" />
         </button>
-    </div>
-    <div>
         <button>
-            <img src="/assets/palette.png" width="15px" height="15px" />
+            <img src="/assets/permadelete.svg" (click)="Permadelete()" width="24px" height="24px" />
         </button>
-    </div>
-    <div>
-        <button>
-            <img src="/assets/image.webp" width="15px" height="15px" />
-        </button>
-    </div>
-    <div>
-        <button>
-            <img src="/assets/Archievelight.png" onclick="Archive(note)" width="15px" height="15px" />
-        </button>
-    </div>
-    <div>
-        <button [matMenuTriggerFor]="menu">
-            <img src="/assets/more.png" width="15px" height="15px" />
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item onclick="Delete(note)">Delete Note</button>
-        </mat-menu>
     </div>
 </div>

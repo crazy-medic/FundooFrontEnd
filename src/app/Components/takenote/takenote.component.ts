@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, PatternValidator, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, } from '@angular/forms';
 import { NoteService } from 'src/app/Services/noteservices/note.service';
 
 @Component({
@@ -15,8 +15,8 @@ export class TakenoteComponent implements OnInit {
 
   ngOnInit(): void {
       this.noteForm = this.formBuilder.group({
-        Title:['',Validators.required,Validators.minLength(1)],
-        Body:['',Validators.required,Validators.minLength(1)]
+        Title:[''],
+        Body:['']
       });
     }
   

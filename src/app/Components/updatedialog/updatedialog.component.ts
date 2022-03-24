@@ -1,5 +1,6 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { NoteService } from 'src/app/Services/noteservices/note.service';
 
 @Component({
   selector: 'app-updatedialog',
@@ -8,10 +9,32 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class UpdatedialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any) { console.log(data);
+  title: any
+  body: any
+
+  constructor(private dialogRef: MatDialogRef<UpdatedialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public noteservice: NoteService) {
+    console.log(data);
+    this.title = data.title;
+    this.body = data.body;
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
   }
-  
+
+  updatenote() {
+    if (this.title != this.data.title || this.body != this.data.body) {
+      this.data.title = this.title;
+      this.data.body = this.body;
+      this.noteservice.updatenote(this.data).subscribe((response: any) => {
+        console.log(response)
+      })
+    }
+    this.dialogRef.close()
+  }
+
+  pinnote() {
+    this.noteservice.pinnote(this.data).subscribe((response: any) => {
+      console.log(response)
+    })
+  }
 }

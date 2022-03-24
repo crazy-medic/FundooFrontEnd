@@ -8,16 +8,16 @@
                     <div fxLayout.gt-lg="row" fxLayoutAlign="space-between" fxLayoutAlign="center center">
                         <div fxLayout="column">
                             <div *ngIf=" isSelected" fxLayoutAlign="space-between">
-                                <input matInput placeholder="Title" formControlName="Title">
+                                <textarea matInput placeholder="Title" formControlName="Title"></textarea>
                             </div>
                             <div *ngIf="!isSelected || isSelected" style="height: 30px;">
                                 <input matInput placeholder="Take a note" formControlName="Body" (click)="Select()">
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="isSelected" fxLayout="row" class="actionicons" fxLayoutAlign="space-between center">
-                        <div fxLayout="row">
-                            <div>
+                    <div *ngIf="isSelected" fxLayout="row" fxLayoutAlign="space-between center">
+                        <div fxLayout="row" fxFlex="100">
+                            <div fxLayoutAlign="row center">
                                 <app-iconscomponent></app-iconscomponent>
                             </div>
                             <div>
@@ -27,9 +27,9 @@
                     </div>
                 </form>
             </div>
-            <div *ngIf="isSelected">
-                <button mat-flat-button color="basic"><img src="/assets/pin.jpg" width="100%" height="100%" /></button>
-            </div>
         </mat-card>
+        <div *ngIf="isSelected">
+            <button mat-flat-button color="basic"><img src="/assets/pin.svg" width="100%" height="100%" /></button>
+        </div>
     </div>
 </div>

@@ -31,10 +31,10 @@ export class NoteService {
       })
     }
     console.log("getall service called from noteservice");
-    return this.httpService.getService('Notes/GetAll', true, headerObj)
+    return this.httpService.getService('Notes/Show', true, headerObj)
   }
 
-  trashnote(note:any){
+  trashnote(data: any) {
     this.token = localStorage.getItem('token')
     let headerObj = {
       headers: new HttpHeaders({
@@ -42,6 +42,58 @@ export class NoteService {
         'Authorization': 'Bearer ' + this.token
       })
     }
-    return this.httpService.putService('/Notes/Delete', note.noteid,true,headerObj)
+    console.log(data);
+    var url='Notes/Delete?noteid='+data.noteId
+    return this.httpService.putService(url, null, true, headerObj)
+  }
+
+  archivenote(note: any) {
+    this.token = localStorage.getItem('token')
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    console.log(note);
+    var url = 'Notes/Archive?noteid='+note.noteId
+    return this.httpService.putService(url, null, true, headerObj)
+  }
+
+  pinnote(note: any) {
+    this.token = localStorage.getItem('token')
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    console.log(note);
+    var url='Notes/Pin?noteid='+note.noteId
+    return this.httpService.putService(url, null, true, headerObj)
+  }
+
+  updatenote(data: any) {
+    this.token = localStorage.getItem('token')
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    console.log(data);
+    return this.httpService.putService('Notes/Update', data, true, headerObj)
+  }
+  permadelete(data: any) {
+    this.token = localStorage.getItem('token')
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    console.log(data);
+    var url='Notes/ForeverDelete?noteid='+data.noteId
+    return this.httpService.deleteService(url, headerObj)
   }
 }

@@ -11,10 +11,12 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginform !: FormGroup;
   submitted = false;
+  user='1';
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,private route:Router) { }
 
   ngOnInit(): void {
+    localStorage.setItem('token',this.user)
     this.loginform = this.formBuilder.group({
       EmailID: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z]{3,}[.]*[a-z0-9]*[@]{1}[a-z]{2,}[.]{1}[co]{2}[m]*[.]*[a-z]*$")]],
       Password: ['', [Validators.required, Validators.minLength(6)]],
@@ -31,7 +33,6 @@ export class LoginComponent implements OnInit {
       if(response.data!=null && localStorage.getItem('token')!=null){
         localStorage.removeItem('token');
         localStorage.setItem('token',response.data);
-        
       }else{
         localStorage.setItem('token',response.data)
       }

@@ -6,17 +6,25 @@ import { GetallnoteComponent } from './Components/getallnote/getallnote.componen
 import { LoginComponent } from './Components/login/login.component';
 import { RegistrationComponent } from './Components/registration/registration.component';
 import { ResetpasswordComponent } from './Components/resetpassword/resetpassword.component';
-import { TakenoteComponent } from './Components/takenote/takenote.component';
+import { AuthGuardGuard } from 'src/auth-guard.guard';
+import { ArchiveviewComponent } from './Components/archiveview/archiveview.component';
+import { DeleteviewComponent } from './Components/deleteview/deleteview.component';
+import { IconscomponentComponent } from './Components/iconscomponent/iconscomponent.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: "registration", component: RegistrationComponent },
   { path: "login", component: LoginComponent },
   { path: "forgotpassword", component: ForgotpasswordComponent },
   { path: "resetpassword", component: ResetpasswordComponent },
   {
-    path: "dashboard", component: DashboardComponent,
+    path: "dashboard", component: DashboardComponent, canActivate: [AuthGuardGuard],
     children: [
-      { path: "notes", component: GetallnoteComponent }
+      { path: '', component: IconscomponentComponent },
+      { path: '', redirectTo: "notes", pathMatch: 'full' },
+      { path: "notes", component: GetallnoteComponent },
+      { path: "archive", component: ArchiveviewComponent },
+      { path: "deleted", component: DeleteviewComponent }
     ]
   }
 ];

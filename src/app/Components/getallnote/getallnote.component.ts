@@ -9,7 +9,7 @@ import { NoteService } from 'src/app/Services/noteservices/note.service';
 export class GetallnoteComponent implements OnInit {
 
   NotesArray: any
-
+  
   constructor(public noteservice: NoteService) { }
 
   ngOnInit(): void {
@@ -18,7 +18,12 @@ export class GetallnoteComponent implements OnInit {
   getall() {
     this.noteservice.getnotes().subscribe((response: any) => {
       console.log(response.data);
-      this.NotesArray = response.data;
+      var datalist = response.data.filter((obj:any)=>{
+        return obj.isDeleted==false && obj.isArchived==false
+      })
+      this.NotesArray = datalist;
     })
   }
+  
+  
 }
