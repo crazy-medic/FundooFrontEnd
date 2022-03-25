@@ -1,8 +1,9 @@
-<div fxLayout="row wrap" fxLayoutGap="20px grid" style="padding-top:2%;padding-left:1%">
+<div fxLayout="row wrap" fxLayoutGap="20px grid" style="padding-top:2%;padding-left:1%;width:100%;">
     <div *ngFor="let note of NotesList">
-        <mat-card class="card">
-            <mat-card-title (click)="Open(note)">
-                {{note.title}}
+        <mat-card class="card" [style.background]="note.color">
+            <mat-card-title  fxLayout="row" fxLayoutAlign="space-between">
+                <div (click)="Open(note)">{{note.title}}</div>
+                <div><img class="pin" (click)="Pin(note)" src="/assets/pin.svg"></div>
             </mat-card-title>
             <mat-card-subtitle (click)="Open(note)">
                 {{note.body}}

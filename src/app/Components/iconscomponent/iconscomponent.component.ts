@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataserviceService } from 'src/app/Services/dataservice/dataservice.service';
 import { NoteService } from 'src/app/Services/noteservices/note.service';
 
@@ -12,32 +12,24 @@ export class IconscomponentComponent implements OnInit {
   @Input() notecarddata: any
   @Output() changecolor = new EventEmitter<any>();
 
-  showIcons: boolean=true
+  showIcons: boolean = true
 
   constructor(public noteservice: NoteService, private dataservice: DataserviceService) { }
 
   predefinedcolors = [
-    {
-      name:'Red',colorcode:'#FF0000'
-    },
-    {
-      name:'Blue',colorcode:'#00FF00'
-    },
-    {
-      name:'Green',colorcode:'#0000FF'
-    },
-    {
-      name:'White',colorcode:'#FFFFFF'
-    },
-    {
-      name:'Light Voilet',colorcode:'#957EC1'
-    },
-    {
-      name:'Funky Green',colorcode:'#1ACEB0'
-    },
-    {
-      name:'Dark Blue',colorcode:'#250075'
-    },
+    
+    { name: 'White', colorcode: '#FFFFFF' },
+    { name: 'Red', colorcode: '#f28b82' },
+    { name: 'Green', colorcode: '#ccff90' },
+    { name: 'Blue', colorcode: '#cbf0f8' },
+    { name: 'Orange', colorcode: '#fbbc04' },
+    { name: 'Yellow', colorcode: '#FFFF00' },
+    { name: 'Dark Blue', colorcode: '#030238' },
+    { name: 'Pink', colorcode: '#fdcfe8' },
+    { name: 'Brown', colorcode: '#e6c9a8' },
+    { name: 'Grey', colorcode: '#e8eaed' },
+    { name: 'Teal', colorcode: '#a7ffeb' },
+    { name: 'Purple', colorcode: '#d7aefb' },
   ]
 
   ngOnInit(): void {
@@ -48,21 +40,27 @@ export class IconscomponentComponent implements OnInit {
       console.log(response)
       this.dataservice.sendData(response)
     })
-    window.location.reload();
   }
 
-  Archive(){
+  Archive() {
     console.log(this.notecarddata);
-    this.noteservice.archivenote(this.notecarddata).subscribe((response:any)=>{
+    this.noteservice.archivenote(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
-    window.location.reload();
   }
 
-  Permadelete(){
-    this.noteservice.permadelete(this.notecarddata).subscribe((response:any)=>{
+  Permadelete() {
+    this.noteservice.permadelete(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
-    window.location.reload();
+  }
+
+  colorselect(color: any) {
+    this.notecarddata.color = color
+    console.log(this.notecarddata.color);
+    this.noteservice.colorChange(this.notecarddata).subscribe((response: any) => {
+      console.log(response);
+      this.changecolor.emit(color)
+    })
   }
 }

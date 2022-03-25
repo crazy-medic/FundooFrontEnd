@@ -15,3 +15,9 @@
 .card:hover .icons{
     visibility: visible;
 }
+.pin{
+    visibility: hidden;
+}
+.card:hover .pin{
+    visibility: visible;
+}

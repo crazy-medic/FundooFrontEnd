@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DataserviceService } from 'src/app/Services/dataservice/dataservice.service';
+import { NoteService } from 'src/app/Services/noteservices/note.service';
 import { UpdatedialogComponent } from '../updatedialog/updatedialog.component';
 
 @Component({
@@ -12,7 +13,7 @@ export class DisplaynoteComponent implements OnInit {
 
   @Input() NotesList: any
 
-  constructor(public dialog: MatDialog,private dataservice:DataserviceService) { }
+  constructor(public dialog: MatDialog,private dataservice:DataserviceService,private noteservice:NoteService) { }
 
   ngOnInit(): void {
     this.dataservice.recvData.subscribe((response:any)=>{
@@ -28,5 +29,11 @@ export class DisplaynoteComponent implements OnInit {
   }
   responsefromnote(e:any){
     console.log(e);
+  }
+
+  Pin(notedata:any){
+    this.noteservice.pinnote(notedata).subscribe((response: any) => {
+      console.log(response)
+    })
   }
 }

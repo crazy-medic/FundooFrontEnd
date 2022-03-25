@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: relative;
   }
   .title{
     display: flex;
@@ -11,6 +11,7 @@
   .toolbar{
     background-color: white;
     border-bottom: 10px whitesmoke;
+    position: fixed;
   }
   .menu{
     border-radius: 50%;

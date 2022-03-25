@@ -3,4 +3,18 @@
     display: flex;
     position: relative;
     opacity: 0.6;
+    border: none;
+    background-color: none;
+}
+.archiveicons{
+    border: none;
+    background-color: none;
+}
+.deleteicons{
+    border: none;
+    background-color: none;
+}
+.colorButton{
+    display: flex;
+    flex-wrap: row wrap;
 }

@@ -1,6 +1,5 @@
 <div class="icons">
-    <div *ngIf="showIcons && this.notecarddata.isDeleted === false" fxLayout="row" fxLayoutAlign="space-between"
-        fxLayoutGap="3px">
+    <div *ngIf="this.notecarddata.isDeleted === false" fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
         <div>
             <!-- <button > -->
             <img [matMenuTriggerFor]="remindermenu" src="/assets/reminder.svg" width="24px" height="24px" />
@@ -19,22 +18,28 @@
             <!-- </button> -->
         </div>
         <div>
-            <!-- <button> -->
-            <img src="/assets/palette.svg" width="24px" height="24px" />
-            <!-- </button> -->
+            <img [matMenuTriggerFor]="colormenu" src="/assets/palette.svg" width="24px" height="24px" />
+            <mat-menu #colormenu="matMenu">
+                <mat-card fxLayout="row wrap">
+                    <div *ngFor="let color of predefinedcolors" class="colorButton">
+                        <button mat-mini-fab [style.background]="color?.colorcode" (click)="colorselect(color?.name)">
+                        </button>
+                    </div>
+                </mat-card>
+            </mat-menu>
         </div>
         <div>
             <!-- <button> -->
             <img src="/assets/insertimg.svg" width="24px" height="24px" />
             <!-- </button> -->
         </div>
-        <div>
-            <button *ngIf="this.notecarddata.isArchived === false">
+        <div class="archiveicons">
+            <div *ngIf="this.notecarddata.isArchived === false">
                 <img src="/assets/archive.svg" (click)="Archive()" width="24px" height="24px" />
-            </button>
-            <button *ngIf="this.notecarddata.isArchived === true">
+            </div>
+            <div *ngIf="this.notecarddata.isArchived === true">
                 <img src="/assets/unarchive.svg" (click)="Archive()" width="24px" height="24px" />
-            </button>
+            </div>
         </div>
         <div>
             <!-- <button > -->
@@ -45,13 +50,8 @@
             </mat-menu>
         </div>
     </div>
-    <div *ngIf=" this.notecarddata.isDeleted === true" fxLayout="row" 
-        fxLayoutGap="3px">
-        <button>
-            <img src="/assets/restore.svg" (click)="Delete()" width="24px" height="24px" />
-        </button>
-        <button>
-            <img src="/assets/permadelete.svg" (click)="Permadelete()" width="24px" height="24px" />
-        </button>
+    <div *ngIf="this.notecarddata.isDeleted === true" fxLayout="row" fxLayoutGap="3px" class="deleteicons">
+        <img src="/assets/restore.svg" (click)="Delete()" width="24px" height="24px" />
+        <img src="/assets/permadelete.svg" (click)="Permadelete()" width="24px" height="24px" />
     </div>
 </div>

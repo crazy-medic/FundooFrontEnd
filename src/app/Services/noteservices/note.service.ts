@@ -43,7 +43,7 @@ export class NoteService {
       })
     }
     console.log(data);
-    var url='Notes/Delete?noteid='+data.noteId
+    var url = 'Notes/Delete?noteid=' + data.noteId
     return this.httpService.putService(url, null, true, headerObj)
   }
 
@@ -56,7 +56,7 @@ export class NoteService {
       })
     }
     console.log(note);
-    var url = 'Notes/Archive?noteid='+note.noteId
+    var url = 'Notes/Archive?noteid=' + note.noteId
     return this.httpService.putService(url, null, true, headerObj)
   }
 
@@ -69,7 +69,7 @@ export class NoteService {
       })
     }
     console.log(note);
-    var url='Notes/Pin?noteid='+note.noteId
+    var url = 'Notes/Pin?noteid=' + note.noteId
     return this.httpService.putService(url, null, true, headerObj)
   }
 
@@ -84,6 +84,18 @@ export class NoteService {
     console.log(data);
     return this.httpService.putService('Notes/Update', data, true, headerObj)
   }
+  colorChange(data: any) {
+    this.token = localStorage.getItem('token')
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    console.log(data);
+    var url = 'Notes/AddColor?color=' + data.color + '&noteid=' + data.noteId
+    return this.httpService.putService(url,null,true, headerObj)
+  }
   permadelete(data: any) {
     this.token = localStorage.getItem('token')
     let headerObj = {
@@ -93,7 +105,7 @@ export class NoteService {
       })
     }
     console.log(data);
-    var url='Notes/ForeverDelete?noteid='+data.noteId
+    var url = 'Notes/ForeverDelete?noteid=' + data.noteId
     return this.httpService.deleteService(url, headerObj)
   }
 }
