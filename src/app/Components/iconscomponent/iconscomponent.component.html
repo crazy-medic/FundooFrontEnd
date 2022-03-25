@@ -20,8 +20,8 @@
         <div>
             <img [matMenuTriggerFor]="colormenu" src="/assets/palette.svg" width="24px" height="24px" />
             <mat-menu #colormenu="matMenu">
-                <mat-card fxLayout="row wrap">
-                    <div *ngFor="let color of predefinedcolors" class="colorButton">
+                <mat-card class="colorButton">
+                    <div *ngFor="let color of predefinedcolors" >
                         <button mat-mini-fab [style.background]="color?.colorcode" (click)="colorselect(color?.name)">
                         </button>
                     </div>

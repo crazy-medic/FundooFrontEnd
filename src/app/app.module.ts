@@ -34,7 +34,7 @@ import { AuthGuardGuard } from 'src/auth-guard.guard';
 import { AuthguardService } from './Services/AuthGaurd/authguard.service';
 import { DeleteviewComponent } from './Components/deleteview/deleteview.component';
 import { ArchiveviewComponent } from './Components/archiveview/archiveview.component';
-import { SearchpipePipe } from './Pipes/searchpipe.pipe';
+import { SearchPipe } from './Pipes/Search/search.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { SearchpipePipe } from './Pipes/searchpipe.pipe';
     UpdatedialogComponent,
     DeleteviewComponent,
     ArchiveviewComponent,
-    SearchpipePipe,
+    SearchPipe,
   ],
   entryComponents: [UpdatedialogComponent],
   imports: [
