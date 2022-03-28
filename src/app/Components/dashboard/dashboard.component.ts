@@ -1,7 +1,11 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataserviceService } from 'src/app/Services/dataservice/dataservice.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { LabelsComponent } from '../labels/labels.component';
+import { LabelService } from 'src/app/Services/label/label.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +16,15 @@ export class DashboardComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
+  @Input() LabelList: any
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataservice: DataserviceService,private router:Router) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataservice: DataserviceService,
+    private router: Router, public dialog: MatDialog,private labelservice:LabelService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.LabelList=this.labelservice.getlabels();
+    console.log(this.LabelList);
   }
 
   ngOnDestroy(): void {
@@ -27,14 +35,22 @@ export class DashboardComponent implements OnDestroy {
     window.location.reload();
   }
 
-  Search(event:any) {
+  Search(event: any) {
     console.log(event.target.value);
     this.dataservice.sendData(event.target.value)
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token')
     this.router.navigateByUrl("/login")
     console.log('User logged out');
   }
+
+  Edit() {
+    let dialogRef = this.dialog.open(LabelsComponent, { data: this.LabelList });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    })
+  }
+
 }

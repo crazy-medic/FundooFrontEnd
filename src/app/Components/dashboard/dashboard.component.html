@@ -55,7 +55,7 @@
             </div> -->
             <div class="example-sidenav-content">
                 <button type="button" class="icons" mat-button>
-                    <img class="img" src="/assets/pencil.svg" width="25px" height="25px" />
+                    <img class="img" src="/assets/pencil.svg" (click)="Edit()" width="25px" height="25px" />
                 </button>
             </div>
             <div class="example-sidenav-content">
@@ -76,7 +76,8 @@
                     <mat-nav-list>
                         <a class="link" mat-list-item routerLink="notes" style="text-align: center;">Notes</a>
                         <a class="link" mat-list-item routerLink=".">Reminders</a>
-                        <a class="link" mat-list-item routerLink=".">Edit Labels</a>
+                        <a class="link" *ngFor="let label in LabelList">{{label.labelName}}</a>
+                        <a class="link" mat-list-item (click)="Edit()" routerLink=".">Edit Labels</a>
                         <a class="link" mat-list-item routerLink="archive">Archive</a>
                         <a class="link" mat-list-item routerLink="deleted">Bin</a>
                     </mat-nav-list>

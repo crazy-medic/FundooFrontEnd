@@ -1,0 +1,26 @@
+<div>
+    <div fxLayout="row center">
+        <img src="/assets/add.svg" *ngIf="!selected" (click)="select()" width="25px" height="25px" />
+        <img src="/assets/close.svg" *ngIf="selected" (click)="close()" width="25px" height="25px" />
+        <form [formGroup]="labelform">
+            <input class="add" textarea formControlName="labelName" placeholder="Create a label" />
+            <button class="tick">
+                <img *ngIf="selected" (click)="create()" src="/assets/tick.svg">
+            </button>
+        </form>
+    </div>
+    <div *ngFor="let label of LabelList" fxLayoutGap="20px">
+        <div fxLayout="row center" fxLayoutAlign="space-between">
+            <mat-card class="labelcard" fxLayoutAlign="space-between">
+                <div class="icons" (mouseenter)="hovered()" (mouseleave)="nothovered()">
+                    <img *ngIf="deleteicon" class="labelicon" src="/assets/label.svg" />
+                    <img *ngIf="!deleteicon" class="deleteicon" (click)="deletelabel(label)"
+                        src="/assets/deletelabel.svg" />
+                </div>
+                <input class="add" textarea formControlName="labelName" placeholder="{{label.labelName}}" />
+                <img class="action" *ngIf="!edit" (click)="editing()" src="/assets/edit.svg">
+                <img class="action" *ngIf="edit" (click)="doneedit()" src="/assets/tick.svg">
+            </mat-card>
+        </div>
+    </div>
+</div>

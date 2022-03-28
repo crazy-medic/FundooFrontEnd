@@ -9,103 +9,59 @@ export class NoteService {
 
   token: any
 
-  constructor(private httpService: HttpService) { }
-
-  createnote(data: any) {
+  constructor(private httpService: HttpService) {
     this.token = localStorage.getItem('token')
+   }
+
+  getheader(){
     let headerObj = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + this.token
       })
     }
-    return this.httpService.postService('Notes/Create', data, true, headerObj)
+    return headerObj;
+  }
+
+  createnote(data: any) {
+    return this.httpService.postService('Notes/Create', data, true, this.getheader())
   }
 
   getnotes() {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log("getall service called from noteservice");
-    return this.httpService.getService('Notes/Show', true, headerObj)
+    return this.httpService.getService('Notes/Show', true, this.getheader())
   }
 
   trashnote(data: any) {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log(data);
     var url = 'Notes/Delete?noteid=' + data.noteId
-    return this.httpService.putService(url, null, true, headerObj)
+    return this.httpService.putService(url, null, true, this.getheader())
   }
 
   archivenote(note: any) {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log(note);
     var url = 'Notes/Archive?noteid=' + note.noteId
-    return this.httpService.putService(url, null, true, headerObj)
+    return this.httpService.putService(url, null, true, this.getheader())
   }
 
   pinnote(note: any) {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log(note);
     var url = 'Notes/Pin?noteid=' + note.noteId
-    return this.httpService.putService(url, null, true, headerObj)
+    return this.httpService.putService(url, null, true, this.getheader())
   }
 
   updatenote(data: any) {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log(data);
-    return this.httpService.putService('Notes/Update', data, true, headerObj)
+    return this.httpService.putService('Notes/Update', data, true, this.getheader())
   }
   colorChange(data: any) {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log(data);
     var url = 'Notes/AddColor?color=' + data.color + '&noteid=' + data.noteId
-    return this.httpService.putService(url,null,true, headerObj)
+    return this.httpService.putService(url,null,true, this.getheader())
   }
   permadelete(data: any) {
-    this.token = localStorage.getItem('token')
-    let headerObj = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
-      })
-    }
     console.log(data);
     var url = 'Notes/ForeverDelete?noteid=' + data.noteId
-    return this.httpService.deleteService(url, headerObj)
+    return this.httpService.deleteService(url, this.getheader())
   }
 }
