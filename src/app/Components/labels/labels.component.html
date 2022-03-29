@@ -9,18 +9,20 @@
             </button>
         </form>
     </div>
-    <div *ngFor="let label of LabelList" fxLayoutGap="20px">
+    <div *ngFor="let label of data" fxLayoutGap="20px">
         <div fxLayout="row center" fxLayoutAlign="space-between">
-            <mat-card class="labelcard" fxLayoutAlign="space-between">
-                <div class="icons" (mouseenter)="hovered()" (mouseleave)="nothovered()">
-                    <img *ngIf="deleteicon" class="labelicon" src="/assets/label.svg" />
-                    <img *ngIf="!deleteicon" class="deleteicon" (click)="deletelabel(label)"
-                        src="/assets/deletelabel.svg" />
-                </div>
-                <input class="add" textarea formControlName="labelName" placeholder="{{label.labelName}}" />
-                <img class="action" *ngIf="!edit" (click)="editing()" src="/assets/edit.svg">
-                <img class="action" *ngIf="edit" (click)="doneedit()" src="/assets/tick.svg">
-            </mat-card>
+            <form [formGroup]="updatelabelform">
+                <mat-card class="labelcard" fxLayoutAlign="space-between">
+                    <div class="icons" (mouseenter)="hovered()" (mouseleave)="nothovered()">
+                        <img *ngIf="deleteicon" class="labelicon" src="/assets/label.svg" />
+                        <img *ngIf="!deleteicon" class="deleteicon" (click)="deletelabel(label)"
+                            src="/assets/deletelabel.svg" />
+                    </div>
+                    <input class="add" textarea formControlName="editlabelname" placeholder="{{label.labelName}}" />
+                    <img class="action" *ngIf="!edit" (click)="editing()" src="/assets/edit.svg">
+                    <img class="action" *ngIf="edit" (click)="doneedit(label)" src="/assets/tick.svg">
+                </mat-card>
+            </form>
         </div>
     </div>
 </div>

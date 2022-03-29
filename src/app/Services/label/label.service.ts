@@ -31,7 +31,7 @@ export class LabelService {
   }
 
   updatelabel(olddata:any,newdata:any){
-    var url = 'Label/Update?oldLabelName='+olddata.labelName+'&newLabelName='+newdata.labelName;
+    var url = 'Label/Update?oldLabelName='+olddata+'&newLabelName='+newdata;
     return this.https.putService(url,null,true,this.getheaders())
   }
 

@@ -20,7 +20,7 @@ export class TakenoteComponent implements OnInit {
 
   ngOnInit(): void {
     this.noteForm = this.formBuilder.group({
-      Title: [''],
+      Title: ['',Validators.required],
       Body: ['', Validators.required],
     });
   }

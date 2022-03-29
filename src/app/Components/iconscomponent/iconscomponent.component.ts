@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataserviceService } from 'src/app/Services/dataservice/dataservice.service';
 import { NoteService } from 'src/app/Services/noteservices/note.service';
 
@@ -14,7 +15,7 @@ export class IconscomponentComponent implements OnInit {
 
   showIcons: boolean = true
 
-  constructor(public noteservice: NoteService, private dataservice: DataserviceService) { }
+  constructor(public noteservice: NoteService, private dataservice: DataserviceService,private router:Router) { }
 
   predefinedcolors = [
     
@@ -40,6 +41,7 @@ export class IconscomponentComponent implements OnInit {
       console.log(response)
       this.dataservice.sendData(response)
     })
+    window.location.reload();
   }
 
   Archive() {
@@ -47,12 +49,14 @@ export class IconscomponentComponent implements OnInit {
     this.noteservice.archivenote(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
+    window.location.reload();
   }
 
   Permadelete() {
     this.noteservice.permadelete(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
+    window.location.reload();
   }
 
   colorselect(color: any) {

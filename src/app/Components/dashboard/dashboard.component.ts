@@ -16,14 +16,14 @@ export class DashboardComponent implements OnDestroy {
 
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  @Input() LabelList: any
+  LabelList: any
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataservice: DataserviceService,
     private router: Router, public dialog: MatDialog,private labelservice:LabelService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    this.LabelList=this.labelservice.getlabels();
+    this.getLabels();
     console.log(this.LabelList);
   }
 
@@ -46,8 +46,16 @@ export class DashboardComponent implements OnDestroy {
     console.log('User logged out');
   }
 
-  Edit() {
-    let dialogRef = this.dialog.open(LabelsComponent, { data: this.LabelList });
+  getLabels(){
+    this.labelservice.getlabels().subscribe((response: any) => {
+      console.log(response.data);
+      this.LabelList = response.data;
+      console.log(this.LabelList);
+    })
+  }
+
+  Edit(LabelList:any) {
+    let dialogRef = this.dialog.open(LabelsComponent, { data: LabelList });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     })
