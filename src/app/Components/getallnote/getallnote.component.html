@@ -3,6 +3,7 @@
         <app-takenote></app-takenote>
     </div>
     <div>
-        <app-displaynote [NotesList]='NotesArray'></app-displaynote>
+        <app-displaynote (deleterefresh)="deleteref($event)" (archiverefresh)="archevent($event)"
+            (colorevent)="colorref($event)" [NotesList]='NotesArray'></app-displaynote>
     </div>
 </div>

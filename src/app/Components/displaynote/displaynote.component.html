@@ -9,7 +9,8 @@
                 {{note.body}}
             </mat-card-subtitle>
             <div class="icons">
-                <app-iconscomponent [notecarddata]='note'></app-iconscomponent>
+                <app-iconscomponent [notecarddata]='note' (deleterefresh)="deleteref($event)"
+                    (archiverefresh)="archevent($event)" (colorevent)="colevent($event)"></app-iconscomponent>
             </div>
         </mat-card>
     </div>

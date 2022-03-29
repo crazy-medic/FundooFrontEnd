@@ -12,6 +12,8 @@ export class IconscomponentComponent implements OnInit {
 
   @Input() notecarddata: any
   @Output() changecolor = new EventEmitter<any>();
+  @Output() deleterefresh = new EventEmitter<any>();
+  @Output() archiverefresh = new EventEmitter<any>();
 
   showIcons: boolean = true
 
@@ -41,7 +43,7 @@ export class IconscomponentComponent implements OnInit {
       console.log(response)
       this.dataservice.sendData(response)
     })
-    window.location.reload();
+    this.deleterefresh.emit(Response)
   }
 
   Archive() {
@@ -49,14 +51,14 @@ export class IconscomponentComponent implements OnInit {
     this.noteservice.archivenote(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
-    window.location.reload();
+    this.archiverefresh.emit(Response)
   }
 
   Permadelete() {
     this.noteservice.permadelete(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
-    window.location.reload();
+    
   }
 
   colorselect(color: any) {
