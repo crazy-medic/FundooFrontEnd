@@ -9,3 +9,22 @@
     background: none;
     border: none;
 }
+.createicons{
+    padding-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+.labelicons{
+    padding-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+.labelicons img:nth-child(2){
+    display: none;
+}
+.labelicons:hover img:nth-child(1) {
+    display: none;
+}
+.labelicons:hover img:nth-child(2) {
+    display: block;
+}

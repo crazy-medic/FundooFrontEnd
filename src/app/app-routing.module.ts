@@ -10,6 +10,7 @@ import { AuthGuardGuard } from 'src/auth-guard.guard';
 import { ArchiveviewComponent } from './Components/archiveview/archiveview.component';
 import { DeleteviewComponent } from './Components/deleteview/deleteview.component';
 import { IconscomponentComponent } from './Components/iconscomponent/iconscomponent.component';
+import { LabelsComponent } from './Components/labels/labels.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "/login", pathMatch: 'full' },
@@ -24,7 +25,8 @@ const routes: Routes = [
       { path: '', redirectTo: "notes", pathMatch: 'full' },
       { path: "notes", component: GetallnoteComponent },
       { path: "archive", component: ArchiveviewComponent },
-      { path: "deleted", component: DeleteviewComponent }
+      { path: "deleted", component: DeleteviewComponent },
+      { path: '', component: LabelsComponent }
     ]
   }
 ];

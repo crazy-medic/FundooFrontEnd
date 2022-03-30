@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DataserviceService } from 'src/app/Services/dataservice/dataservice.service';
 import { NoteService } from 'src/app/Services/noteservices/note.service';
+import { LabelsComponent } from '../labels/labels.component';
 
 @Component({
   selector: 'app-iconscomponent',
@@ -11,33 +13,18 @@ import { NoteService } from 'src/app/Services/noteservices/note.service';
 export class IconscomponentComponent implements OnInit {
 
   @Input() notecarddata: any
+  @Input() colordata:any
   @Output() changecolor = new EventEmitter<any>();
   @Output() deleterefresh = new EventEmitter<any>();
   @Output() archiverefresh = new EventEmitter<any>();
 
   showIcons: boolean = true
 
-  constructor(public noteservice: NoteService, private dataservice: DataserviceService,private router:Router) { }
-
-  predefinedcolors = [
-    
-    { name: 'White', colorcode: '#FFFFFF' },
-    { name: 'Red', colorcode: '#f28b82' },
-    { name: 'Green', colorcode: '#ccff90' },
-    { name: 'Blue', colorcode: '#cbf0f8' },
-    { name: 'Orange', colorcode: '#fbbc04' },
-    { name: 'Yellow', colorcode: '#FFFF00' },
-    { name: 'Dark Blue', colorcode: '#030238' },
-    { name: 'Pink', colorcode: '#fdcfe8' },
-    { name: 'Brown', colorcode: '#e6c9a8' },
-    { name: 'Grey', colorcode: '#e8eaed' },
-    { name: 'Teal', colorcode: '#a7ffeb' },
-    { name: 'Purple', colorcode: '#d7aefb' },
-  ]
+  constructor(public noteservice: NoteService, private dataservice: DataserviceService,private router:Router,public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
-
+  
   Delete() {
     this.noteservice.trashnote(this.notecarddata).subscribe((response: any) => {
       console.log(response)
@@ -69,4 +56,5 @@ export class IconscomponentComponent implements OnInit {
       this.changecolor.emit(color)
     })
   }
+
 }

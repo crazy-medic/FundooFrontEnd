@@ -15,4 +15,8 @@ export class SearchPipe implements PipeTransform {
       return obj.title.toLocaleLowerCase().includes(args) | obj.body.toLocaleLowerCase().includes(args);
     });
   }
+
+  updatelist(listoflabels:any):any{
+    return listoflabels;
+  }
 }

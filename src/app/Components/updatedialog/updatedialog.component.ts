@@ -11,14 +11,24 @@ export class UpdatedialogComponent implements OnInit {
 
   title: any
   body: any
+  color: any
 
   constructor(private dialogRef: MatDialogRef<UpdatedialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, public noteservice: NoteService) {
     console.log(data);
     this.title = data.title;
     this.body = data.body;
+    this.color = data.color;
+    console.log(this.color);
+    
   }
 
   ngOnInit(): void {
+  }
+
+  colormatcher(predefinedcolors:any,args:any){
+    return this.color.filter((obj:any) => {
+      return obj.name.toLocaleLowerCase().includes(args);
+    });
   }
 
   updatenote() {

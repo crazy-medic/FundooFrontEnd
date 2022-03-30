@@ -1,15 +1,15 @@
-<div class="updatenotes" fxFlex="100" fxLayout="column">
-    <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
-        <div fxFlex="100" fxLayout="column" fxLayoutAlign="column" fxLayoutGap="space-between">
-            <input class="input" textarea [(ngModel)]="title" />
-            <input class="input" textarea [(ngModel)]="body" />
+<mat-card class="updatenotes" fxLayoutAlign="space-between space-evenly" fxLayout="column" [style.background]="color">
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="100" fxLayout="column" fxLayoutAlign="column" fxLayoutGap="15px">
+            <input class="input" textarea [(ngModel)]="title" [style.background]="color" />
+            <input class="input" textarea [(ngModel)]="body" [style.background]="color" />
         </div>
         <div fxLayout="column" fxLayoutAlign="space-between">
             <mat-icon (click)="pinnote()">push_pin</mat-icon>
         </div>
-    </mat-card-content>
-    <mat-card-actions fxLayout="row">
+    </div>
+    <div fxLayout="row">
         <app-iconscomponent [notecarddata]="data"></app-iconscomponent>
         <button mat-stroked-button (click)="updatenote()">close</button>
-    </mat-card-actions>
-</div>
+    </div>
+</mat-card>

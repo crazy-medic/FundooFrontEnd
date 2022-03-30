@@ -14,10 +14,26 @@ export class DisplaynoteComponent implements OnInit {
 
   @Input() NotesList: any
   query: any
+  color:any
   @Output() deleterefresh = new EventEmitter<any>();
   @Output() archiverefresh = new EventEmitter<any>();
   @Output() colorevent = new EventEmitter<any>();
   @Output() updateevent = new EventEmitter<any>();
+  
+  predefinedcolors = [
+    { name: 'White', colorcode: '#FFFFFF' },
+    { name: 'Red', colorcode: '#f28b82' },
+    { name: 'Green', colorcode: '#ccff90' },
+    { name: 'Blue', colorcode: '#cbf0f8' },
+    { name: 'Orange', colorcode: '#fbbc04' },
+    { name: 'Yellow', colorcode: '#FFFF00' },
+    { name: 'Dark Blue', colorcode: '#030238' },
+    { name: 'Pink', colorcode: '#fdcfe8' },
+    { name: 'Brown', colorcode: '#e6c9a8' },
+    { name: 'Grey', colorcode: '#e8eaed' },
+    { name: 'Teal', colorcode: '#a7ffeb' },
+    { name: 'Purple', colorcode: '#d7aefb' },
+  ]
 
   constructor(public dialog: MatDialog, private dataservice: DataserviceService, private noteservice: NoteService,
     private router: Router) { }
@@ -30,7 +46,7 @@ export class DisplaynoteComponent implements OnInit {
   }
 
   Open(notedata: any) {
-    let dialogRef = this.dialog.open(UpdatedialogComponent, { data: notedata });
+    let dialogRef = this.dialog.open(UpdatedialogComponent, { data: notedata } );
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
       this.updateevent.emit(' ');

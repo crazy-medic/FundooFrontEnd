@@ -50,7 +50,6 @@ export class DashboardComponent implements OnDestroy {
     this.labelservice.getlabels().subscribe((response: any) => {
       console.log(response.data);
       this.LabelList = response.data;
-      console.log(this.LabelList);
     })
   }
 

@@ -51,8 +51,8 @@
                     <img class="img" src="/assets/bell.svg" width="25px" height="25px" />
                 </button>
             </div>
-            <div class="example-sidenav-content" *ngFor="let label of LabelList">
-                <button type="button" class="icons" mat-button (click)="snav.toggle()">
+            <div class="example-sidenav-content" *ngFor="let label of LabelList ">
+                <button type="button" class="icons" mat-button>
                     <img class="img" src="/assets/label.svg" width="25px" height="25px" />
                 </button>
             </div>
@@ -83,7 +83,7 @@
                         <div *ngFor="let label of LabelList">
                             <a class="link" mat-list-item routerLink="."> {{label.labelName}}</a>
                         </div>
-                        <a class="link" mat-list-item (click)="Edit(LabelList)" routerLink=".">Edit Labels</a>
+                        <a class="link" mat-list-item (click)="Edit(LabelList)">Edit Labels</a>
                         <a class="link" mat-list-item routerLink="archive">Archive</a>
                         <a class="link" mat-list-item routerLink="deleted">Bin</a>
                     </mat-nav-list>

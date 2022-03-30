@@ -1,5 +1,5 @@
 import { invalid } from '@angular/compiler/src/render3/view/util';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DataserviceService } from 'src/app/Services/dataservice/dataservice.service';
@@ -59,8 +59,8 @@ export class LabelsComponent implements OnInit {
     this.edit = false
     console.log("editing off");
     console.log(label.labelName, this.updatelabelform.value.editlabelname);
-    if(label.labelName!=this.updatelabelform.value.editlabelname){
-      this.updatelabel(label.labelName,this.updatelabelform.value.editlabelname);
+    if (label.labelName != this.updatelabelform.value.editlabelname) {
+      this.updatelabel(label.labelName, this.updatelabelform.value.editlabelname);
     }
   }
 
@@ -75,9 +75,13 @@ export class LabelsComponent implements OnInit {
   }
 
   updatelabel(olddata: any, newdata: any) {
-    this.labelservice.updatelabel(olddata, newdata).subscribe((response: any) => {
-      console.log(response);
-    })
+    console.log(olddata,newdata);
+    if (newdata != null && olddata != newdata && newdata!='') {
+      this.labelservice.updatelabel(olddata, newdata).subscribe((response: any) => {
+        console.log(response);
+      })
+    }
+
   }
 
   deletelabel(data: any) {

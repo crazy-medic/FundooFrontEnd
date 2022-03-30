@@ -21,7 +21,7 @@
             <img [matMenuTriggerFor]="colormenu" src="/assets/palette.svg" width="24px" height="24px" />
             <mat-menu #colormenu="matMenu">
                 <mat-card class="colorButton">
-                    <div *ngFor="let color of predefinedcolors" >
+                    <div *ngFor="let color of colordata">
                         <button mat-mini-fab [style.background]="color?.colorcode" (click)="colorselect(color?.name)">
                         </button>
                     </div>
@@ -47,7 +47,7 @@
             <!-- </button> -->
             <mat-menu #moremenu="matMenu">
                 <span mat-menu-item (click)="Delete()">Delete Note</span>
-                <span mat-menu-item>Add Label</span>
+                <span mat-menu-item >Add Label</span>
             </mat-menu>
         </div>
     </div>
