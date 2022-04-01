@@ -29,7 +29,7 @@ export class ArchiveviewComponent implements OnInit {
   getarchived() {
     this.noteservice.getnotes().subscribe((response: any) => {
       console.log(response.data);
-      var datalist = response.data.filter((obj:any)=>{
+      let datalist = response.data.filter((obj:any)=>{
         return obj.isArchived==true
       })
       this.archivedNotes = datalist;

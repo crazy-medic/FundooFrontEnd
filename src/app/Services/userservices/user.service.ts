@@ -7,6 +7,8 @@ import { HttpService } from '../httpservices/http.service';
 })
 export class UserService {
 
+  userlist:any
+
   constructor(private httpService: HttpService) { }
 
   registration(data: {}) {
@@ -25,7 +27,6 @@ export class UserService {
         'Content-Type': 'application/json'
       })
     }
-    console.log("login called from user service",data);
     return this.httpService.postService('User/Login',data,false,headerObj);
   }
 
@@ -35,7 +36,6 @@ export class UserService {
         'Content-Type': 'application/json'
       })
     }
-    console.log("resetpassword called from user service",data);
     return this.httpService.postService('User/ResetPassword',data,false,headerObj);
   }
 
@@ -45,7 +45,16 @@ export class UserService {
         'Content-Type': 'application/json'
       })
     }
-    console.log("forgotpassword called from user service",data);
-    return this.httpService.postService('User/ForgotPassword?email='+data.email,{},false,headerObj);
+    let url = 'User/ForgotPassword?email='+data.email
+    return this.httpService.postService(url,{},false,headerObj);
+  }
+
+  getusers(){
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpService.getService('User/GetUsers', false, headerObj)
   }
 }

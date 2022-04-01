@@ -28,7 +28,6 @@ export class NoteService {
   }
 
   getnotes() {
-    console.log("getall service called from noteservice");
     return this.httpService.getService('Notes/Show', true, this.getheader())
   }
 

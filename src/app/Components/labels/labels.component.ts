@@ -81,7 +81,6 @@ export class LabelsComponent implements OnInit {
         console.log(response);
       })
     }
-
   }
 
   deletelabel(data: any) {

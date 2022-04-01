@@ -18,11 +18,10 @@ export class GetallnoteComponent implements OnInit {
 
   getall() {
     this.noteservice.getnotes().subscribe((response: any) => {
-      console.log(response.data);
       var datalist = response.data.filter((obj: any) => {
         return obj.isDeleted == false && obj.isArchived == false
       })
-      this.NotesArray = datalist;
+      this.NotesArray = datalist.reverse();
     })
   }
 

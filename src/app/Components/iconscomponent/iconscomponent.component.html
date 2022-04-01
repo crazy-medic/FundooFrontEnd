@@ -14,7 +14,7 @@
         </div>
         <div>
             <!-- <button> -->
-            <img src="/assets/collab.svg" width="24px" height="24px" />
+            <img src="/assets/collab.svg" (click)="collaboration(notecarddata)" width="24px" height="24px" />
             <!-- </button> -->
         </div>
         <div>
@@ -22,7 +22,7 @@
             <mat-menu #colormenu="matMenu">
                 <mat-card class="colorButton">
                     <div *ngFor="let color of colordata">
-                        <button mat-mini-fab [style.background]="color?.colorcode" (click)="colorselect(color?.name)">
+                        <button mat-mini-fab [style.background]="color?.code" (click)="colorselect(color?.name)">
                         </button>
                     </div>
                 </mat-card>

@@ -1,0 +1,28 @@
+<div fxLayoutGap="25px" fxLayout="column" fxFlex="100" fxLayoutAlign="space-between space-evenly"
+    style="width: 600px; height: auto;">
+    <div>
+        <h2>Collaborator</h2>
+    </div>
+    <div fxLayout="row" *ngFor="let owner of owner">
+        <img src="/assets/account.svg" width="24px" height="24px">
+        <div fxLayout="column">
+            <div>{{owner.firstName}}</div>
+            <div>{{owner.emailID}}</div>
+        </div>
+    </div>
+    <div fxLayout="row" *ngFor="let colab of colabuserlist">
+        <img src="/assets/account.svg" width="24px" height="24px">
+        <div fxLayout="column">
+            <div>{{colab.name}}</div>
+            <div>{{colab.collabEmail}}</div>
+        </div>
+        <div>
+            <img src="/assets/close.svg" alt="" (click)="delete(colab)">
+        </div>
+    </div>
+    <div [formGroup]="colabform" fxLayout="row">
+        <img src="/assets/account.svg" width="24px" height="24px">
+        <input textarea matInput formControlName="emailID" />
+        <img src="/assets/tick.svg" (click)="add()">
+    </div>
+</div>

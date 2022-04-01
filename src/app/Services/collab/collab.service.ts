@@ -8,37 +8,49 @@ import { HttpService } from '../httpservices/http.service';
 export class CollabService {
 
   token: any
-  noteid:any
-  collabEmail:any
+  noteid: any
+  collabEmail: any
 
   constructor(private httpService: HttpService) {
     this.token = localStorage.getItem('token')
-    this.getusers();
-   }
+  }
 
-   getheader(){
+  getheader() {
     let headerObj = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + this.token
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type': 'application/json'
       })
     }
     return headerObj;
   }
-  getusers(){
-    let object = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    }
-    return this.httpService.getService('User/redis', false, object)
-  }
 
-  create(notedata:any,email:any){
+  create(email: any, noteid: any) {
     let data = {
-      noteid:notedata.noteId,
-      collabEmail:email
+      notesId: noteid,
+      emailID: email,
     }
     return this.httpService.postService('Collab/Add', data, true, this.getheader())
   }
+
+  getcolablist(noteId: any) {
+    let url = 'Collab/Show?noteid=' + noteId
+    return this.httpService.getService(url, true, this.getheader());
+  }
+
+  deletecolab(colab: any, noteid: any) {
+    let data = {
+      notesId: noteid,
+      emailId: colab
+    }
+    let headerObj = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token,
+        'Content-Type': 'application/json',
+        'data': JSON.stringify(data)
+      })
+    }
+    return this.httpService.deleteService('Collab/Remove',headerObj)
+  }
+
 }

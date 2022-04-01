@@ -27,9 +27,7 @@ export class LoginComponent implements OnInit {
     if (this.loginform.invalid) {
       return;
     }
-    console.log(this.loginform.value)
     this.userService.login(this.loginform.value).subscribe((response: any) => {
-      console.log(response);
       if(response.data!=null && localStorage.getItem('token')!=null){
         localStorage.removeItem('token');
         localStorage.setItem('token',response.data);

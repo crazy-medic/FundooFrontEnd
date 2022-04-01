@@ -36,6 +36,7 @@ import { DeleteviewComponent } from './Components/deleteview/deleteview.componen
 import { ArchiveviewComponent } from './Components/archiveview/archiveview.component';
 import { SearchPipe } from './Pipes/Search/search.pipe';
 import { LabelsComponent } from './Components/labels/labels.component';
+import { CollabComponent } from './Components/collab/collab.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { LabelsComponent } from './Components/labels/labels.component';
     ArchiveviewComponent,
     SearchPipe,
     LabelsComponent,
+    CollabComponent,
   ],
   entryComponents: [UpdatedialogComponent],
   imports: [

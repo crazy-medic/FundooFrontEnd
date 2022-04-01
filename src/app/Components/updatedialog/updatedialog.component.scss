@@ -1,11 +1,21 @@
+::ng-deep .mat-dialog-container {
+    padding: 0px !important;
+}
 .updatenotes{
     border: none;
     padding: 0px;
-    height: 200px;
-    width: 300px;
+    height: auto;
+    width: 320px;
 }
 .input{
     border: none;
     outline: none;
     font-size: 20px;
+}
+.bodyinput{
+    border: none;
+    outline: none;
+    font-size: 20px;
+    word-wrap: break-word;
+    min-height: 46px;
 }

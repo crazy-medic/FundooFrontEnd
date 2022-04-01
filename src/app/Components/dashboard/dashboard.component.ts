@@ -24,7 +24,6 @@ export class DashboardComponent implements OnDestroy {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.getLabels();
-    console.log(this.LabelList);
   }
 
   ngOnDestroy(): void {
@@ -43,12 +42,10 @@ export class DashboardComponent implements OnDestroy {
   logout() {
     localStorage.removeItem('token')
     this.router.navigateByUrl("/login")
-    console.log('User logged out');
   }
 
   getLabels(){
     this.labelservice.getlabels().subscribe((response: any) => {
-      console.log(response.data);
       this.LabelList = response.data;
     })
   }

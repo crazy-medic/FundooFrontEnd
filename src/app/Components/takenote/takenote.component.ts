@@ -37,7 +37,6 @@ export class TakenoteComponent implements OnInit {
     }
     else {
       this.noteservice.createnote(this.noteForm.value).subscribe((response: any) => {
-        console.log(response);
         return response.data.noteid
       })
     }
