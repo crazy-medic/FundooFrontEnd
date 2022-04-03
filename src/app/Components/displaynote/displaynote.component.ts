@@ -51,10 +51,6 @@ export class DisplaynoteComponent implements OnInit {
     })
   }
 
-  responsefromnote(e: any) {
-    console.log(e);
-  }
-
   archevent(data: any) {
     this.archiverefresh.emit(' ');
   }
