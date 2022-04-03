@@ -32,34 +32,28 @@ export class NoteService {
   }
 
   trashnote(data: any) {
-    console.log(data);
     let url = 'Notes/Delete?noteid=' + data.noteId
     return this.httpService.putService(url, null, true, this.getheader())
   }
 
   archivenote(note: any) {
-    console.log(note);
     let url = 'Notes/Archive?noteid=' + note.noteId
     return this.httpService.putService(url, null, true, this.getheader())
   }
 
   pinnote(note: any) {
-    console.log(note);
     let url = 'Notes/Pin?noteid=' + note.noteId
     return this.httpService.putService(url, null, true, this.getheader())
   }
 
   updatenote(data: any) {
-    console.log(data);
     return this.httpService.putService('Notes/Update', data, true, this.getheader())
   }
   colorChange(data: any) {
-    console.log(data);
     let url = 'Notes/AddColor?color=' + data.color + '&noteid=' + data.noteId
     return this.httpService.putService(url,null,true, this.getheader())
   }
   permadelete(data: any) {
-    console.log(data);
     let url = 'Notes/ForeverDelete?noteid=' + data.noteId
     return this.httpService.deleteService(url, this.getheader())
   }

@@ -14,9 +14,11 @@ export class IconscomponentComponent implements OnInit {
 
   @Input() notecarddata: any
   @Input() colordata: any
+  @Input() newnotecolor:any
   @Output() changecolor = new EventEmitter<any>();
   @Output() deleterefresh = new EventEmitter<any>();
   @Output() archiverefresh = new EventEmitter<any>();
+  @Output() permadel = new EventEmitter<any>();
 
   showIcons: boolean = true
 
@@ -27,15 +29,12 @@ export class IconscomponentComponent implements OnInit {
 
   Delete() {
     this.noteservice.trashnote(this.notecarddata).subscribe((response: any) => {
-      console.log(response)
     })
     this.deleterefresh.emit(Response)
   }
 
   Archive() {
-    console.log(this.notecarddata);
     this.noteservice.archivenote(this.notecarddata).subscribe((response: any) => {
-      console.log(response);
     })
     this.archiverefresh.emit(Response)
   }
@@ -44,16 +43,17 @@ export class IconscomponentComponent implements OnInit {
     this.noteservice.permadelete(this.notecarddata).subscribe((response: any) => {
       console.log(response);
     })
-
+    this.permadel.emit('');
   }
 
   colorselect(color: any) {
     this.notecarddata.color = color
-    console.log(this.notecarddata.color);
-    this.noteservice.colorChange(this.notecarddata).subscribe((response: any) => {
-      console.log(response);
-      this.changecolor.emit(color)
-    })
+    if (this.notecarddata.noteId) {
+      this.noteservice.colorChange(this.notecarddata).subscribe((response: any) => {
+        console.log(response);
+        this.changecolor.emit(color)
+      })
+    }
   }
 
   collaboration(ncdata: any) {

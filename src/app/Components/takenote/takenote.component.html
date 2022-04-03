@@ -1,16 +1,18 @@
 <div fxFlex="100" fxLayout="column" fxLayoutAlign="space-evenly center">
     <!-- display take note api part -->
     <div fxLayout="column" fxLayoutAlign="center center" style="margin-top:30px;">
-        <mat-card fxFlex="100" fxLayout="row" fxLayoutAlign="center"
-            style="border: radius 8px;border: 1px solid transparent;overflow: hidden; width: 360px;height: 144px;">
+        <mat-card fxFlex="100" fxLayout="row" fxLayoutAlign="center "
+            style="border: radius 8px;border: 1px solid transparent;overflow: hidden; width: 590px;height: 144px;">
             <div>
                 <form [formGroup]="noteForm" (ngSubmit)="close(noteForm)" fxLayoutGap="5px" fxLayout="column">
-                    <div fxFlex="100" fxLayout.gt-lg="row" fxLayoutGap="20px" fxLayoutAlign="space-between" fxLayoutAlign="center center">
+                    <div fxFlex="100" fxLayout.gt-lg="row" fxLayoutGap="20px" fxLayoutAlign="space-between"
+                        fxLayoutAlign="center center">
                         <div fxLayout="column" fxLayoutGap="20px">
-                            <div *ngIf=" isSelected" fxLayoutAlign="space-between">
+                            <div *ngIf="isSelected" fxLayoutAlign="space-between" style="width: 500px;">
                                 <input textarea class="input" matInput placeholder="Title" formControlName="Title" />
                             </div>
-                            <div *ngIf="!isSelected || isSelected" style="height: 30px;" fxLayoutGap="5px" fxLayoutAlign="space-between" fxFlex=100>
+                            <div *ngIf="!isSelected || isSelected" style="height: 30px;" fxLayoutGap="5px"
+                                fxLayoutAlign="space-between" fxFlex=100 style="width: 500px;">
                                 <input textarea class="input" matInput placeholder="Take a note" formControlName="Body"
                                     (click)="Select()" />
                                 <img *ngIf="!isSelected" src="/assets/checkbox.svg" alt="">
@@ -25,7 +27,8 @@
                     <div *ngIf="isSelected" fxLayout="row" fxLayoutAlign="space-between center">
                         <div fxLayout="row" fxFlex="100">
                             <div fxLayoutAlign="row center">
-                                <app-iconscomponent [notecarddata]="{isDeleted:false,isArchved:false}" ></app-iconscomponent>
+                                <app-iconscomponent [notecarddata]="{isDeleted:false,isArchved:false}" [colordata]="predefinedcolors" [newnotecolor]="newcolor">
+                                </app-iconscomponent>
                                 <button mat-flat-button color="basic" width="10px" height="10px">Close</button>
                             </div>
                         </div>

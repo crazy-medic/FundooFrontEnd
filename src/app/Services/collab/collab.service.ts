@@ -46,11 +46,10 @@ export class CollabService {
     let headerObj = {
       headers: new HttpHeaders({
         'Authorization': 'Bearer ' + this.token,
-        'Content-Type': 'application/json',
-        'data': JSON.stringify(data)
+        'Content-Type': 'application/json'
       })
     }
-    return this.httpService.deleteService('Collab/Remove',headerObj)
+    return this.httpService.postService('Collab/Remove',data,true,headerObj)
   }
 
 }

@@ -3,26 +3,46 @@
     <div>
         <h2>Collaborator</h2>
     </div>
-    <div fxLayout="row" *ngFor="let owner of owner">
-        <img src="/assets/account.svg" width="24px" height="24px">
+    <div fxLayout="row" *ngFor="let owner of owner" fxLayoutGap="5px">
+        <div>
+            <img src="/assets/account.svg" width="24px" height="24px">
+        </div>
         <div fxLayout="column">
             <div>{{owner.firstName}}</div>
             <div>{{owner.emailID}}</div>
         </div>
     </div>
-    <div fxLayout="row" *ngFor="let colab of colabuserlist">
-        <img src="/assets/account.svg" width="24px" height="24px">
-        <div fxLayout="column">
-            <div>{{colab.name}}</div>
-            <div>{{colab.collabEmail}}</div>
+    <div fxLayout="row" *ngFor="let colab of colabuserlist" fxLayoutAlign="space-between">
+        <div fxLayout="row" fxLayoutGap="5px">
+            <div>
+                <img src="/assets/account.svg" width="24px" height="24px">
+            </div>
+            <div fxLayout="column">
+                <div>{{colab.name}}</div>
+                <div>{{colab.collabEmail}}</div>
+            </div>
         </div>
         <div>
-            <img src="/assets/close.svg" alt="" (click)="delete(colab)">
+            <img src="/assets/close.svg" alt="" width="24px" height="24px" (click)="delete(colab)" />
         </div>
     </div>
-    <div [formGroup]="colabform" fxLayout="row">
-        <img src="/assets/account.svg" width="24px" height="24px">
-        <input textarea matInput formControlName="emailID" />
-        <img src="/assets/tick.svg" (click)="add()">
+    <div [formGroup]="colabform" fxLayout="row" fxLayoutAlign="space-between">
+        <div>
+            <img src="/assets/account.svg" width="24px" height="24px">
+            <input textarea matInput class="colabinput" formControlName="emailID" placeholder="Enter the mail of the user to collab with" />
+        </div>
+        <div>
+            <img src="/assets/tick.svg" (click)="save()">
+        </div>
+    </div>
+    <div class="flex-box" fxLayoutGap="7px">
+        <div>
+
+        </div>
+        <div fxLayoutGap="7px">
+            <button mat-raised-button>Cancel</button>
+            <button mat-raised-button>Save</button>
+        </div>
+
     </div>
 </div>

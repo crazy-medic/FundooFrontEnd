@@ -36,7 +36,7 @@ export class UpdatedialogComponent implements OnInit {
       this.data.title = this.title;
       this.data.body = this.body;
       this.noteservice.updatenote(this.data).subscribe((response: any) => {
-        console.log(response)
+        console.log(response.message)
       })
     }
     this.dialogRef.close()

@@ -17,7 +17,6 @@ export class UserService {
         'Content-Type': 'application/json'
       })
     }
-    console.log("signup called in service user", data);
     return this.httpService.postService('User/SignUp', data, false, headerObj);
   }
 

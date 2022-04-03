@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   loginform !: FormGroup;
   submitted = false;
   user='1';
+  showpass:boolean= false
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,private route:Router) { }
 
@@ -36,5 +37,8 @@ export class LoginComponent implements OnInit {
       }
       this.route.navigate(['./dashboard/notes']);
     })
+  }
+  toggle(){
+    this.showpass = !this.showpass;
   }
 }

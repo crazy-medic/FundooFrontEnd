@@ -26,19 +26,15 @@ export class GetallnoteComponent implements OnInit {
   }
 
   update(data: any) {
-    console.log(data);
     this.getall();
   }
   colorref(data: any) {
-    console.log(data);
     this.getall();
   }
   archevent(data: any) {
-    console.log(data);
     this.getall();
   }
   deleteref(data: any) {
-    console.log(data);
     this.getall();
   }
 }

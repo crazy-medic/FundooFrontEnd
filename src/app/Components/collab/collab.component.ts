@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CollabService } from 'src/app/Services/collab/collab.service';
@@ -15,12 +15,14 @@ export class CollabComponent implements OnInit {
   owner: any
   userid: any
   noteid: any
+  newcolabuserlist:any
   alluserlist: any
   colabuserlist: any
   addcoll: any
   namelist: any
   colabform!: FormGroup
   submitted = false
+  @Output() colabaddition = new EventEmitter<any>();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<CollabComponent>,
     private collabservice: CollabService, private userservice: UserService, private formBuilder: FormBuilder) { }
@@ -62,8 +64,21 @@ export class CollabComponent implements OnInit {
     })
   }
 
+  save(){
+    let newdata = {
+      email:this.colabform.value.emailID,
+      notesId:this.noteid
+    }
+    this.newcolabuserlist = (newdata)
+    console.log(this.newcolabuserlist);
+    this.colabaddition.emit('');
+  }
+
   delete(colab:any){
     this.collabservice.deletecolab(colab.collabEmail,this.noteid)
+    .subscribe((response:any)=>{
+      console.log(response);
+    })
   }
 }
 
