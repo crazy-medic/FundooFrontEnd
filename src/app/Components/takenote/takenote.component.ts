@@ -80,6 +80,7 @@ export class TakenoteComponent implements OnInit {
 
   colevent(data: any) {
     this.colorevent.emit(' ');
+    this.newcolor = data
   }
 
   takeevent(data: any) {

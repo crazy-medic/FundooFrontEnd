@@ -10,11 +10,10 @@
             <p>Fundoo Notes</p>
         </div>
         <div class="firstContainer" fxLayout="row" fxLayoutAlign="start center">
-            <div>
-                <button mat-button class="searching"><img src="/assets/search.svg" />
-                    <input fxHide.xs="true" fxHide.sm="true" fxHide.md="true" type="text" placeholder="Search"
-                        (keyup)="Search($event)" class="search">
-                </button>
+            <div fxLayout="row">
+                <img mat-button class="searching" src="/assets/search.svg" />
+                <input fxHide.xs="true" fxHide.sm="true" fxHide.md="true" type="text" placeholder="Search"
+                    (keyup)="Search($event)" class="search" />
             </div>
         </div>
         <div>
@@ -51,12 +50,12 @@
                     <img class="img" src="/assets/bell.svg" width="25px" height="25px" />
                 </button>
             </div>
-            <div class="example-sidenav-content" *ngFor="let label of LabelList ">
+            <div class="example-sidenav-content" *ngFor="let label of LabelList">
                 <button type="button" class="icons" mat-button>
                     <img class="img" src="/assets/label.svg" width="25px" height="25px" />
                 </button>
             </div>
-            <div class="example-sidenav-content">
+            <div class="example-sidenav-content" (crudrefresh)="dialogrefresh($event)">
                 <button type="button" class="icons" mat-button>
                     <img class="img" src="/assets/pencil.svg" (click)="Edit(LabelList)" width="25px" height="25px" />
                 </button>
@@ -85,7 +84,7 @@
                         </div>
                         <a class="link" mat-list-item (click)="Edit(LabelList)">Edit Labels</a>
                         <a class="link" mat-list-item routerLink="archive">Archive</a>
-                        <a class="link" mat-list-item routerLink="deleted">Bin</a>
+                        <a class="link" mat-list-item routerLink="deleted">Trash</a>
                     </mat-nav-list>
                 </mat-sidenav>
                 <mat-sidenav-content>

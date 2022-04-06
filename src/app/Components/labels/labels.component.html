@@ -1,5 +1,5 @@
 <mat-card style="width:250px">
-    <div fxLayout="row center" fxLayoutAlign="space-evenly">
+    <div fxLayout="row center" fxLayoutAlign="space-between">
         <div class="createicons" fxLayoutAlign="space-between">
             <img src="/assets/add.svg" *ngIf="!selected" (click)="select()" width="25px" height="25px" />
             <img src="/assets/close.svg" *ngIf="selected" (click)="close()" width="25px" height="25px" />
@@ -16,13 +16,15 @@
             <div class="labelcard" fxLayoutAlign="space-between">
                 <div class="labelicons">
                     <img src="/assets/label.svg" />
-                    <img src="/assets/deletelabel.svg" (click)="deletelabel(label)" />
+                    <img src="/assets/deletelabel.svg" (click)="deletelabel(label)"/>
                 </div>
-                <form [formGroup]="updatelabelform">
+                <form [formGroup]="updatelabelform" fxLayout="row center">
                     <input class="add" textarea formControlName="editlabelname" placeholder="{{label.labelName}}"
                         (click)="editing()" />
-                    <img class="action" *ngIf="!edit" (click)="editing()" src="/assets/edit.svg">
-                    <img class="action" *ngIf="edit" (click)="doneedit(label)" src="/assets/tick.svg">
+                    <div>
+                        <img (click)="editing()" src="/assets/edit.svg">
+                        <img (click)="doneedit(label)" src="/assets/tick.svg">
+                    </div>
                 </form>
             </div>
         </div>

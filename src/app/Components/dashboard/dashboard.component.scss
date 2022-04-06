@@ -1,103 +1,102 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  .title{
-    display: flex;
-    flex-direction: column;
-    position: center;
-  }
-  .toolbar{
-    background-color: white;
-    border-bottom: 10px whitesmoke;
-    position: fixed;
-  }
-  .menu{
-    border-radius: 50%;
-    margin-left: 12px;
-    padding: 0;
-    width: 50px;
-  }
-  .header{
-    font-family:cursive;
-    font-style: bold;    
-    margin-top:5%;
-    text-align: center;
-    font-weight: 600;
-    margin-left: 15px;
-    font-size: larger;
-  }
-  .firstContainer{
-    margin:auto;
-    width: 500px;
-    height: 45px;
-    border-radius: 5px;   
- }
- .profileimage{
-  display:block;
-  height: 50px;
-  width: 25px;   
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
- .settings{
-  display:block;
-  height: 50px;
-  width: 30px;   
-  text-align: center;
+.title {
+  display: flex;
+  flex-direction: column;
+  position: center;
 }
- .searching{
-  border-radius: 20px;
-  width: 25px;
+.toolbar {
+  background-color: white;
+  border-bottom: 10px whitesmoke;
+  position: fixed;
 }
-.view{
-  display:block;
-  margin-left: 10px;
-  margin-right: 20px;
-  height: 50px;
-  width: 25px;   
-}
-.iconbar{
-  padding-top: 8px;
- }
- .search{
-  border: none;
-  width: 350px;
-  height:38px ;
-  border-radius: 10px;
-}
-.link{
-  width: 250px;
-  height: 50px;
-  font-weight:900;  
-
-}
-.icons{
-  height: 48px;
-  opacity: 60%;  
+.menu {
   border-radius: 50%;
   margin-left: 12px;
   padding: 0;
   width: 50px;
 }
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
-  }
-  
-  h1.example-app-name {
-    margin-left: 8px;
-  }
-  
-  .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+.header {
+  font-family: cursive;
+  font-style: bold;
+  margin-top: 5%;
+  text-align: center;
+  font-weight: 600;
+  margin-left: 15px;
+  font-size: larger;
+}
+.firstContainer {
+  margin: auto;
+  width: 500px;
+  height: 45px;
+  border-radius: 5px;
+}
+.profileimage {
+  display: block;
+  height: 50px;
+  width: 25px;
+}
+.settings {
+  display: block;
+  height: 50px;
+  width: 30px;
+  text-align: center;
+}
+.searching {
+  border-radius: 20px;
+  width: 25px;
+}
+.view {
+  display: block;
+  margin-left: 10px;
+  margin-right: 20px;
+  height: 50px;
+  width: 25px;
+}
+.iconbar {
+  padding-top: 8px;
+}
+.search {
+  border: none;
+  width: 350px;
+  height: 38px;
+  border-radius: 10px;
+}
+.link {
+  width: 250px;
+  height: 50px;
+  font-weight: 900;
+}
+.icons {
+  height: 48px;
+  opacity: 60%;
+  border-radius: 50%;
+  margin-left: 12px;
+  padding: 0;
+  width: 50px;
+}
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
-    background: white;
-  }
-  
-  .example-is-mobile .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+  flex: 1;
+  background: white;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
-  }
+  flex: 1 0 auto;
+}

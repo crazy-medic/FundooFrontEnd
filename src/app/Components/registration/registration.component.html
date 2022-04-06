@@ -37,16 +37,16 @@
                 <div fxLayoutGap=10px>
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput formControlName="Password" type="password">
+                        <input matInput [type]="showpass ? 'text' : 'password'" formControlName="Password">
                         <mat-hint>Alphanumeric with symbols</mat-hint>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm Password</mat-label>
-                        <input matInput formControlName="ConfirmPassword" type="password">
+                        <input matInput [type]="showpass ? 'text' : 'password'" formControlName="ConfirmPassword">
                         <mat-hint>Same as password</mat-hint>
                     </mat-form-field>
                 </div>
-                <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+                <mat-checkbox class="example-margin" (click)="toggle()">Show Password</mat-checkbox>
                 <div fxLayoutAlign="space-between">
                     <button mat-flat-button routerLink="/login">Sign in instead</button>
                     <button mat-raised-button color="primary" routerLink="/login">Next</button>

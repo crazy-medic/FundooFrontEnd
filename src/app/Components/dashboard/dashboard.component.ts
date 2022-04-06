@@ -17,6 +17,7 @@ export class DashboardComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
   LabelList: any
+  searching:boolean = false;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataservice: DataserviceService,
     private router: Router, public dialog: MatDialog,private labelservice:LabelService) {
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnDestroy {
 
   Search(event: any) {
     console.log(event.target.value);
+    this.searching = true
     this.dataservice.sendData(event.target.value)
   }
 
@@ -57,4 +59,12 @@ export class DashboardComponent implements OnDestroy {
     })
   }
 
+  dialogrefresh(data:any){
+    this.getLabels();
+    this.Edit(this.LabelList)
+  }
+
+  closesearch(){
+    this.searching = false;
+  }
 }

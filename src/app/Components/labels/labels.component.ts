@@ -14,13 +14,13 @@ export class LabelsComponent implements OnInit {
 
   selected: boolean = true
   edit: boolean = false
-  deleteicon: boolean = true
   LabelList: any
   labelName: any
   editlabelname: any
   olddata: any
   labelform !: FormGroup
   updatelabelform !: FormGroup
+  @Output() crudrefresh = new EventEmitter<any>();
 
   constructor(private dialogRef: MatDialogRef<LabelsComponent>, @Inject(MAT_DIALOG_DATA) public data: any,
     private labelservice: LabelService, private formbuilder: FormBuilder, public dataservice: DataserviceService) {
@@ -34,13 +34,6 @@ export class LabelsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  hovered() {
-    this.deleteicon = false
-  }
-  nothovered() {
-    this.deleteicon = true
   }
 
   select() {
@@ -61,6 +54,7 @@ export class LabelsComponent implements OnInit {
     console.log(label.labelName, this.updatelabelform.value.editlabelname);
     if (label.labelName != this.updatelabelform.value.editlabelname) {
       this.updatelabel(label.labelName, this.updatelabelform.value.editlabelname);
+      this.crudrefresh.emit('')
     }
   }
 
@@ -71,7 +65,7 @@ export class LabelsComponent implements OnInit {
     this.labelservice.createlabel(this.labelform.value.labelName).subscribe((response: any) => {
       console.log(response);
     })
-
+    this.crudrefresh.emit('');
   }
 
   updatelabel(olddata: any, newdata: any) {
@@ -81,6 +75,7 @@ export class LabelsComponent implements OnInit {
         console.log(response);
       })
     }
+    this.crudrefresh.emit('');
   }
 
   deletelabel(data: any) {
@@ -88,5 +83,6 @@ export class LabelsComponent implements OnInit {
     this.labelservice.deletelabel(this.labelName).subscribe((response: any) => {
       console.log(response);
     })
+    this.crudrefresh.emit('');
   }
 }

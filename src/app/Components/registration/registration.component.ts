@@ -12,6 +12,7 @@ export class RegistrationComponent implements OnInit {
 
   registerationForm !: FormGroup;
   submitted = false;
+  showpass:boolean= false
 
   constructor(private formBuilder: FormBuilder,private userService:UserService) { }
 
@@ -36,5 +37,8 @@ export class RegistrationComponent implements OnInit {
     this.userService.registration(this.registerationForm.value).subscribe((response:any)=>{
       console.log(response);
     })
+  }
+  toggle(){
+    this.showpass = !this.showpass;
   }
 }

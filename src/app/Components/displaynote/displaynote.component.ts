@@ -21,7 +21,7 @@ export class DisplaynoteComponent implements OnInit {
   @Output() updateevent = new EventEmitter<any>();
 
   predefinedcolors: Array<any> = [
-    { code: '#fff', name: 'white' },
+    { code: '#ffffff', name: 'white' },
     { code: '#f28b82', name: 'red' },
     { code: '#fbbc04', name: 'orange' },
     { code: '#FFFF00', name: 'yellow' },
@@ -42,6 +42,7 @@ export class DisplaynoteComponent implements OnInit {
     this.dataservice.recvData.subscribe((response: any) => {
       this.query = response
     })
+    // this.colormatcher(this.NotesList);
   }
 
   Open(notedata: any) {
@@ -68,4 +69,5 @@ export class DisplaynoteComponent implements OnInit {
     })
     this.router.navigateByUrl('dashboard/notes');
   }
+
 }
